@@ -1,19 +1,31 @@
 import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
 import { HomePage } from '../home/home';
+import { ResourcesPage } from '../resources/resources';
+import { RecipesPage } from '../recipes/recipes';
 
+@IonicPage()
 @Component({
-  templateUrl: 'tabs.html'
+  selector: 'page-tabs',
+  templateUrl: 'tabs.html',
 })
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
+  tab2Root = ResourcesPage;
+  tab3Root = RecipesPage;
 
-  constructor() {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
 
   }
+
+  ionViewDidLoad() {
+    let tab3 = document.querySelector('#tab-t0-3');
+    tab3.addEventListener('click', () => {
+      this.menuCtrl.toggle();
+      console.log('Menu toggled');
+    });
+  }
+
 }
