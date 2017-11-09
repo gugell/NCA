@@ -15,6 +15,7 @@ import { AboutCnaPage } from '../pages/about-cna/about-cna';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MenuPage } from '../pages/menu/menu';
 
 @NgModule({
   declarations: [
@@ -22,11 +23,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     RecipesPage,
-    ResourcesPage,
-    MeetTheExpertsPage,
-    ExpertsQaPage,
-    ContactsPage,
-    AboutCnaPage
+    ResourcesPage
   ],
   imports: [
     BrowserModule,
@@ -38,11 +35,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     RecipesPage,
-    ResourcesPage,
-    MeetTheExpertsPage,
-    ExpertsQaPage,
-    ContactsPage,
-    AboutCnaPage
+    ResourcesPage
   ],
   providers: [
     StatusBar,

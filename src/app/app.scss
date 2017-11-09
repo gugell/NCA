@@ -14,3 +14,32 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.category__wrapper {
+    .category__title {
+        font-size: 3rem!important;
+        padding: .6rem 0;
+        text-align: center;
+    }
+    .category__item {
+        .card-title {
+            font-size: 2rem;
+        }
+    }
+}
+
+.toolbar-title {
+    text-align: center;
+}
+
+.nav__title {
+    font-size: 1.5rem;
+    line-height: 1.3rem;
+    font-weight: 400;
+    max-width: 150px;
+    vertical-align: top;
+    display: inline-block;
+    text-align: left;
+    color: #136734;
+    padding-top: .5rem;
+}

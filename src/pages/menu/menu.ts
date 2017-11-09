@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MenuController } from 'ionic-angular';
+
 /**
  * Generated class for the MenuPage page.
  *
@@ -14,8 +14,17 @@ import { MenuController } from 'ionic-angular';
   templateUrl: 'menu.html',
 })
 export class MenuPage {
+  pages: Array<{title: string, component: any}>;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
+    this.pages = [
+      { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
+      { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
+      { title: 'ContactsPage', component: 'ContactsPage' },
+      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
+    ];
+
   }
 
   ionViewDidLoad() {

@@ -19,10 +19,10 @@ export class MyApp {
   constructor( public app: App, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ) {
 
     this.pages = [
-      { title: 'MeetTheExpertsPage', component: MeetTheExpertsPage },
-      { title: 'ExpertsQaPage', component: ExpertsQaPage },
-      { title: 'ContactsPage', component: ContactsPage },
-      { title: 'AboutCnaPage', component: AboutCnaPage }
+      { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
+      { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
+      { title: 'ContactsPage', component: 'ContactsPage' },
+      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
     ];
 
     platform.ready().then(() => {
@@ -35,6 +35,7 @@ export class MyApp {
 
   openPage(page) {
     console.log('Page', page);
-    this.app.getActiveNavs()[0].push(page.component);
+    this.app.getRootNav().push(page.component);
+    // this.app.getActiveNavs()[0].push(page.component);
   }
 }

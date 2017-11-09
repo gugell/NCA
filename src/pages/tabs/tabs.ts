@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { App, IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { ResourcesPage } from '../resources/resources';
@@ -16,7 +16,7 @@ export class TabsPage {
   tab2Root = ResourcesPage;
   tab3Root = RecipesPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
+  constructor(private app: App, public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
 
   }
 
@@ -24,7 +24,7 @@ export class TabsPage {
     let tab3 = document.querySelector('#tab-t0-3');
     tab3.addEventListener('click', () => {
       this.menuCtrl.toggle();
-      console.log('Menu toggled');
+      // this.app.getActiveNavs()[0].push(MenuPage);
     });
   }
 
