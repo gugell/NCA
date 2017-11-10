@@ -1,2 +1,22 @@
 page-home {
+    .home-hero {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        padding-top: 7rem;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: center;
+        background-image: url('../../assets/imgs/mainbg.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .hero-logo {
+        text-align: center;
+        img {
+            max-width: 75px;
+            height: auto;
+        }
+    }
 }

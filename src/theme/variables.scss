@@ -86,3 +86,28 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@font-face {
+  font-family: 'CenturyGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/400/regular.ttf');
+}
+@font-face {
+  font-family: 'CenturyGothic';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../assets/fonts/italic/400/gothici.ttf');
+}
+@font-face {
+  font-family: 'CenturyGothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/700/gothicb.ttf');
+}
+@font-face {
+  font-family: 'CenturyGothic';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../assets/fonts/italic/700/GOTHICBI.ttf');
+}

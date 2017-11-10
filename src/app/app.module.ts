@@ -15,7 +15,6 @@ import { AboutCnaPage } from '../pages/about-cna/about-cna';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MenuPage } from '../pages/menu/menu';
 
 @NgModule({
   declarations: [
