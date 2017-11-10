@@ -8,9 +8,34 @@ page-home {
         flex-flow: column wrap;
         justify-content: flex-start;
         align-items: center;
-        background-image: url('../../assets/imgs/mainbg.png');
+        background-image: url('../assets/imgs/mainbg.png');
         background-size: cover;
         background-position: center;
+    }
+    .hero-title {
+        width: 90%;
+        padding: 1rem;
+        background-color: rgba(19,103,53, .82);
+        h2 {
+            font-size: 2.75rem;
+            line-height: 3.5rem;
+            font-weight: 700;   
+            font-style: italic;
+            color: #d9ebf2;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .hero-footer__text {
+        padding: 0;
+        margin: 0;
+        margin-top: auto;
+        font-size: 2.25rem;
+        text-align: center;
+        max-width: 80%;
+        color: #136735;
+        font-weight: 700;
     }
     .hero-logo {
         text-align: center;
