@@ -14,16 +14,34 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.hero-background {
+    margin-bottom: -5px;
+}
 
 .category__wrapper {
+    color: #136734;
     .category__title {
-        font-size: 3rem!important;
-        padding: .6rem 0;
+        margin: 0;
+        background-color: #D9EBF2;
+        font-size: 4rem!important;
+        padding: 2rem 0;
         text-align: center;
     }
     .category__item {
         .card-title {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card-subtitle {
+            font-size: 1.75rem;
+            color: #B2D9AD;
+            font-weight: 400;
+            letter-spacing: -.5px
+        }
+        .item__img {
+            img {
+                height: 100%;
+            }
         }
     }
 }
