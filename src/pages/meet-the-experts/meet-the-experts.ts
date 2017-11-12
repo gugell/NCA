@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
-
+import { TabsPage } from '../tabs/tabs';
 /**
  * Generated class for the MeetTheExpertsPage page.
  *
@@ -25,5 +25,7 @@ export class MeetTheExpertsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MeetTheExpertsPage');
   }
-
+  navback() {
+    this.navCtrl.popToRoot();
+  }
 }

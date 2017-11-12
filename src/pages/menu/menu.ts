@@ -19,10 +19,10 @@ export class MenuPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.pages = [
-      { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
-      { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
-      { title: 'ContactsPage', component: 'ContactsPage' },
-      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
+      { title: 'CNA Experts', component: 'MeetTheExpertsPage' },
+      { title: 'Ask the Experts', component: 'ExpertsQaPage' },
+      { title: 'About', component: 'AboutCnaPage' },
+      { title: 'Contact', component: 'ContactsPage' }
     ];
 
   }
@@ -30,5 +30,8 @@ export class MenuPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
-
+  pageOpen(page) {
+  //  this.navCtrl.pop();
+   this.navCtrl.push(page); 
+  }
 }

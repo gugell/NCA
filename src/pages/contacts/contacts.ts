@@ -21,5 +21,7 @@ export class ContactsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
-
+  navback() {
+    this.navCtrl.popToRoot();
+  }
 }

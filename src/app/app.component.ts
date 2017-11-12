@@ -14,16 +14,16 @@ import { AboutCnaPage } from '../pages/about-cna/about-cna';
 })
 export class MyApp {
   rootPage:any = TabsPage;
-  pages: Array<{title: string, component: any}>;
+  // pages: Array<{title: string, component: any}>;
 
   constructor( public app: App, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ) {
 
-    this.pages = [
-      { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
-      { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
-      { title: 'ContactsPage', component: 'ContactsPage' },
-      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
-    ];
+    // this.pages = [
+    //   { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
+    //   { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
+    //   { title: 'ContactsPage', component: 'ContactsPage' },
+    //   { title: 'AboutCnaPage', component: 'AboutCnaPage' }
+    // ];
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -34,7 +34,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    console.log('Page', page);
     this.app.getRootNav().push(page.component);
     // this.app.getActiveNavs()[0].push(page.component);
   }

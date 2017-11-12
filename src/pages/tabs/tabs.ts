@@ -4,6 +4,7 @@ import { App, IonicPage, NavController, NavParams, MenuController } from 'ionic-
 import { HomePage } from '../home/home';
 import { ResourcesPage } from '../resources/resources';
 import { RecipesPage } from '../recipes/recipes';
+import { MenuPage } from '../menu/menu';
 
 @IonicPage()
 @Component({
@@ -15,15 +16,18 @@ export class TabsPage {
   tab1Root = HomePage;
   tab2Root = ResourcesPage;
   tab3Root = RecipesPage;
+  // tab4Root = MenuPage;
 
   constructor(private app: App, public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
 
   }
 
   ionViewDidLoad() {
-    let tab3 = document.querySelector('#tab-t0-3');
-    tab3.addEventListener('click', () => {
-      this.menuCtrl.toggle();
+    let tab4 = document.querySelector('#tab-t0-3');
+    tab4.addEventListener('click', () => {
+      this.navCtrl.push(MenuPage);
+      // this.menuCtrl.toggle();
+      // this.app.getActiveNavs()[0].pop();
       // this.app.getActiveNavs()[0].push(MenuPage);
     });
   }

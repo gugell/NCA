@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ExpertsQaPage page.
+ * Generated class for the InnerVideoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,18 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-experts-qa',
-  templateUrl: 'experts-qa.html',
+  selector: 'page-inner-video',
+  templateUrl: 'inner-video.html',
 })
-export class ExpertsQaPage {
-
+export class InnerVideoPage {
+  context: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.context = this.navParams.data;
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ExpertsQaPage');
+    console.log('ionViewDidLoad InnerVideoPage');
   }
-  navback() {
-    this.navCtrl.popToRoot();
-  }
+
 }

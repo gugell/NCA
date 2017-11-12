@@ -21,5 +21,7 @@ export class AboutCnaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutCnaPage');
   }
-
+  navback() {
+    this.navCtrl.popToRoot();
+  }
 }

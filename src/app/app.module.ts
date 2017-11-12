@@ -7,11 +7,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { ResourcesPage } from '../pages/resources/resources';
+import { MenuPage } from '../pages/menu/menu';
 
 import { MeetTheExpertsPage } from '../pages/meet-the-experts/meet-the-experts';
 import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutCnaPage } from '../pages/about-cna/about-cna';
+import { InnerVideoPage } from '../pages/inner-video/inner-video';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,11 +24,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     RecipesPage,
-    ResourcesPage
+    ResourcesPage,
+    MenuPage,
+    InnerVideoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '',
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +40,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     HomePage,
     RecipesPage,
-    ResourcesPage
+    ResourcesPage,
+    MenuPage,
+    InnerVideoPage
   ],
   providers: [
     StatusBar,
