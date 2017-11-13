@@ -13,10 +13,13 @@ import { MeetTheExpertsPage } from '../pages/meet-the-experts/meet-the-experts';
 import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutCnaPage } from '../pages/about-cna/about-cna';
+import { VideoPage } from '../pages/video/video';
 import { InnerVideoPage } from '../pages/inner-video/inner-video';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HeadToolbarComponent } from '../components/head-toolbar/head-toolbar';
+import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RecipesPage,
     ResourcesPage,
     MenuPage,
-    InnerVideoPage
+    InnerVideoPage,
+    VideoPage,
+    HeadToolbarComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +48,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RecipesPage,
     ResourcesPage,
     MenuPage,
+    VideoPage,
     InnerVideoPage
   ],
   providers: [

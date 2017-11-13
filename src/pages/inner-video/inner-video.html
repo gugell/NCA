@@ -14,5 +14,9 @@
 
 
 <ion-content padding>
-  {{context.date}}
+  {{context.date || ''}}
+  <ion-card>
+    <img src="{{context.img}}"/>
+    <div class="card-title">{{context.title}}</div>
+  </ion-card>
 </ion-content>

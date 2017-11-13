@@ -14,6 +14,10 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.tab-button-text {
+    font-family: 'CenturyGothic';    
+}
+
 .text {
     font-family: 'CenturyGothic';
     color: #136735;
@@ -21,16 +25,41 @@
 .hero-background {
     margin-bottom: -5px;
 }
-
-.arrow-back--custom {
-    display: inline-block;
-    width: 3.3rem;
-    height: 3.3rem;
+.header-md::after {
+    display: none;
+}
+.ion-ios-arrow-back:before,
+.ion-md-arrow-back:before {
+    display: none;
+}
+.title-md {
+    left: 0;
+    top: 0;
+    padding: 0 70px 1px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    pointer-events: none;
+}
+.back-button.show-back-button .button-inner {
+    // display: inline-block;
+    // width: 3.3rem;
+    // height: 3.3rem;
+    width: 3.2rem;
+    height: 3.2rem;
     border-radius: 50%;
     background-image: url('../assets/icon/Icons/BackButton.png');        
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    // position: absolute;
+    // left: 2rem;
+    // top: 0;
+    // bottom: 0;
+    // margin: auto;
+    // z-index: 10;
 }
 
 .text {
@@ -38,7 +67,7 @@
 }
 
 .toolbar-ios ion-title {
-    padding: 0 80px 1px;
+    padding: 0 70px 1px;
 }
 
 .category__wrapper {
@@ -97,16 +126,90 @@
     text-align: center;
 }
 
+.toolbar-title .custom-title {
+    padding: 0;
+    margin: 0;
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    transform: translateY(50%);
+    max-width: 100%;
+}
+
 .nav__title {
     font-family: 'CenturyGothic';
     font-size: 1.5rem;
     line-height: 1.3rem;
     font-weight: 400;
-    max-width: 150px;
+    max-width: 110px;
     vertical-align: top;
     display: inline-block;
     text-align: left;
     color: #136734;
     padding-top: .5rem;
     text-transform: uppercase;
+    white-space: normal;
 }
+
+.segment-ios .segment-button:first-of-type,
+.segment-ios .segment-button:last-of-type {
+    border-radius: 0;
+}
+
+.segment-ios .segment-button:first-of-type,
+.segment-md .segment-button:first-of-type {
+    flex: .4;
+}
+
+.segment-ios-secondary .segment-button,
+.segment-md .segment-button {
+    background-color: #7bbd71;
+    color: #ffffff;
+    border-color: #7bbd71;
+    font-family: 'CenturyGothic';
+    opacity: 1;
+    text-transform: none;
+}
+
+.segment-ios .segment-button {
+    height: 4.2rem;
+    line-height: 4rem;
+}
+
+.segment-ios .segment-button.segment-activated,
+.segment-md-secondary .segment-button.segment-activated {
+    background-color: #136735;  
+    border-color: #136735;    
+    color: #ffffff;
+}
+
+.segment-ios-secondary .segment-button:hover:not(.segment-activated) {
+    background-color: #7bbd71;    
+}
+
+.segment-md-secondary .segment-button.activated {
+    color: #ffffff;    
+}
+
+//==============RECIPE CARD==============//
+recipe-card {
+    max-width: 50%;
+    width: 50%;
+    .card-content {
+        padding: 0px 12px;
+    }
+    .card-title {
+        font-size: 1.75rem;
+        color: #136735;
+        font-family: 'CenturyGothic';
+    }
+}
+.card__wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    recipe-card:first-child {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+//===========/.END RECIPE CARD===========//
