@@ -22,25 +22,68 @@
     margin-bottom: -5px;
 }
 
+.arrow-back--custom {
+    display: inline-block;
+    width: 3.3rem;
+    height: 3.3rem;
+    border-radius: 50%;
+    background-image: url('../assets/icon/Icons/BackButton.png');        
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.text {
+    font-family: 'CenturyGothic';
+}
+
+.toolbar-ios ion-title {
+    padding: 0 80px 1px;
+}
+
 .category__wrapper {
     color: #136734;
+    background-color: #D9EBF2;
     .category__title {
         margin: 0;
-        background-color: #D9EBF2;
-        font-size: 4rem!important;
+        font-size: 2.25rem !important;
         padding: 2rem 0;
         text-align: center;
+        padding: 0;
+        line-height: 4.5rem;
+        border-bottom: 2px solid #136735;
+        font-weight: 400;
     }
     .category__item {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        padding: 0 5px;
+        background-color: #ffffff;
+        margin: 0 5px 5px;        
+        padding: 6px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .img__container {
+            width: 42%;
+            min-width: 130px;
+        }
+        .item__header {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            width: 53%;
+        }
         .card-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            line-height: 2rem;
         }
         .card-subtitle {
-            font-size: 1.75rem;
-            color: #B2D9AD;
+            font-size: 1.5rem;
+            color: #7bbd71;
             font-weight: 400;
-            letter-spacing: -.5px
+            margin-top: auto;
         }
         .item__img {
             img {
@@ -55,6 +98,7 @@
 }
 
 .nav__title {
+    font-family: 'CenturyGothic';
     font-size: 1.5rem;
     line-height: 1.3rem;
     font-weight: 400;
@@ -64,4 +108,5 @@
     text-align: left;
     color: #136734;
     padding-top: .5rem;
+    text-transform: uppercase;
 }

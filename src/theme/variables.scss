@@ -45,9 +45,11 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
-
+$toolbar-ios-height: 58px;
+$toolbar-ios-background: (#ffffff);
+$tabs-ios-tab-color-inactive: color($colors, primary);
+$tabs-ios-background: (#7bbd71);
+$hairlines-width: 0;
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -57,7 +59,7 @@ $tabs-md-tab-icon-color: color($colors, primary);
 $tabs-md-tab-icon-color-active: (#136735);
 $toolbar-md-background: (#ffffff);
 $tab-button-md-active-color: (#136735);
-$tabs-md-background: (#B5E3AE);  
+$tabs-md-background: (#7bbd71);  
 
 // App Windows Variables
 // --------------------------------------------------
@@ -72,7 +74,6 @@ $tabs-md-background: (#B5E3AE);
 // then be future customized. This import comes last
 // so that the above variables are used and Ionic's
 // default are overridden.
-
 @import "ionic.theme.default";
 
 
@@ -114,3 +115,15 @@ $tabs-md-background: (#B5E3AE);
   font-weight: 700;
   src: url('../assets/fonts/italic/700/GOTHICBI.ttf');
 }
+
+@font-face {
+  font-family: 'Myriad';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/myriad/400/regular.ttf');
+}
+
+$font-family-sans-serif:          "CenturyGothic", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+$font-family-light-sans-serif:    "Helvetica Neue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+$font-family-serif:               Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:           Monaco, Menlo, Consolas, "Courier New", monospace !default;

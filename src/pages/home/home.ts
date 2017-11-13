@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { InnerVideoPage } from '../inner-video/inner-video';
 
 /**
  * Generated class for the HomePage page.
@@ -35,5 +36,8 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
-
+  handleClick($event, params) {
+    console.log(params);
+    this.navCtrl.push(InnerVideoPage, params);
+  }
 }

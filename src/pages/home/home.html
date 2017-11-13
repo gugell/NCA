@@ -1,8 +1,13 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar light>
     <ion-title>
+<<<<<<< HEAD
         <img class="nav__logo" width="45px" height="45px" src="./assets/imgs/logo.png" />
         <span class="nav__title">CENTER FOR<br> NUTRITION<br> AND ATHLETIC</span>
+=======
+        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+        <span class="nav__title">CENTER FOR<br> NUTRITION<br> AND ATHLETICS</span>
+>>>>>>> ecd737993a70c483e2b3dc434b1bb2fe9e74d591
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,54 +16,47 @@
         <div class="hero-logo">
           <img src="./assets/imgs/logo.png" alt="logo" />
         </div>
+<<<<<<< HEAD
         <div class="hero-title">
           <h2 class="text">Center for Nutrition and Athletics</h2>
+=======
+        <div class="hero-title text">
+          <h2>Center for Nutrition and Athletics</h2>
+>>>>>>> ecd737993a70c483e2b3dc434b1bb2fe9e74d591
         </div>
-        <p class="hero-footer__text">
+        <p class="hero-footer__text text">
           Where nutrition and Athletics Meet
         </p>
     </div>
     <!-- <ion-img width="100%" height="100%" src="../../assets/imgs/mainbg.png"></ion-img> -->
     <div class="category__wrapper">
       <h3 class="category__title">Resources</h3>        
-      <div class="category__item" *ngFor="let item of videos">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-5><img class="item__img" width="100%" height="100px" src="https://picsum.photos/160/100/?random" /></ion-col>
-            <ion-col col-7>
-                    <div class="card-title">{{item.title}}</div>
-                    <div class="card-subtitle">{{item.date}}</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+      <div class="category__item" *ngFor="let item of videos" (click)="handleClick($event, item)">
+        <div class="img__container"><img class="item__img" width="100%" height="100px" src="https://picsum.photos/160/100/?image=162" /></div>
+        <div class="item__header">
+                <div class="card-title">{{item.title}}</div>
+                <div class="card-subtitle">{{item.date}}</div>
+        </div>
       </div>
     </div>
     <div class="category__wrapper">
       <h3 class="category__title">Recipes</h3>        
-      <div class="category__item" *ngFor="let item of videos; let i = index">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-5><img class="item__img" width="100%" height="100px" src='https://picsum.photos/160/100/?image={{index}}' /></ion-col>
-            <ion-col col-7>
-                    <div class="card-title">Weight Management</div>
-                    <div class="card-subtitle">27/12/17</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+      <div class="category__item" *ngFor="let item of videos" (click)="handleClick($event, item)">
+        <div class="img__container"><img class="item__img" width="100%" height="100px" src="https://picsum.photos/160/100/?random" /></div>
+        <div class="item__header">
+                <div class="card-title">{{item.title}}</div>
+                <div class="card-subtitle">{{item.date}}</div>
+        </div>
       </div>
     </div>
     <div class="category__wrapper">
       <h3 class="category__title">Videos</h3>        
-      <div class="category__item" *ngFor="let item of videos">
-        <ion-grid>
-          <ion-row>
-            <ion-col col-5><img class="item__img" width="100%" height="100px" src="https://picsum.photos/160/100/?random" /></ion-col>
-            <ion-col col-7>
-                    <div class="card-title">Weight Management</div>
-                    <div class="card-subtitle">27/12/17</div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+      <div class="category__item" *ngFor="let item of videos" (click)="handleClick($event, item)">
+        <div class="img__container"><img class="item__img" width="100%" height="100px" src="https://picsum.photos/160/100/?image=25" /></div>
+        <div class="item__header">
+                <div class="card-title">{{item.title}}</div>
+                <div class="card-subtitle">{{item.date}}</div>
+        </div>
       </div>
     </div>
 </ion-content>

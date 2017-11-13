@@ -1,3 +1,62 @@
 page-menu {
-
+    .menu__wrapper {
+        height: 100%;
+        background-color: #D9EBF2;
+    }
+    .category__wrapper .category__title {
+        text-align: left;
+        line-height: 5rem;
+        border-bottom: 2px solid #7bbd71;
+        position: relative;
+        padding-left: 5.5rem;
+        &:after {
+            content: '';
+            width:3.5rem;
+            height: 3.5rem;
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        &--products:after {
+            background-image: url('../assets/icon/Icons/MealPlanIcon.png');
+        }
+        &--experts:after {
+            background-image: url('../assets/icon/Icons/ExpertIcon.png');
+        }
+        &--qa:after {
+            background-image: url('../assets/icon/Icons/AskExpert.png');
+        }
+        &--about:after {
+            background-image: url('../assets/icon/Icons/About.png');
+        }
+        &--contact:after {
+            background-image: url('../assets/icon/Icons/ContactIcon.png');
+        }
+        &--search:after {
+            background-image: url('../assets/icon/Icons/SearchIcon.png');
+        }
+        // &--products:after {
+        //     background-image: url('../assets/icon/Icons/MealPlanIcon.png');
+        // }
+        // &--experts:after {
+        //     background-image: url('../assets/icon/Icons/ExpertIcon.png');
+        // }
+        // &--qa:after {
+        //     background-image: url('../assets/icon/Icons/AskExpert.png');
+        // }
+        // &--about:after {
+        //     background-image: url('../assets/icon/Icons/About.png');
+        // }
+        // &--contact:after {
+        //     background-image: url('../assets/icon/Icons/ContactIcon.png');
+        // }
+        // &--search:after {
+        //     background-image: url('../assets/icon/Icons/SearchIcon.png');
+        // }
+    }
 }
