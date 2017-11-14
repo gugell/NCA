@@ -35,7 +35,7 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #136735,
-  secondary:  #32db64,
+  secondary:  #7bbd71,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222
@@ -50,7 +50,6 @@ $toolbar-ios-background: (#ffffff);
 $tabs-ios-tab-color-inactive: color($colors, primary);
 $tabs-ios-background: (#7bbd71);
 $hairlines-width: 0;
-
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
@@ -107,7 +106,7 @@ $tabs-md-background: (#7bbd71);
   font-family: 'CenturyGothic';
   font-style: normal;
   font-weight: 700;
-  src: url('../assets/fonts/700/gothicb.ttf');
+  src: url('../assets/fonts/700/CenturyGothic-Bold.ttf');
 }
 @font-face {
   font-family: 'CenturyGothic';

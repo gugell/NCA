@@ -4,15 +4,39 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<!-- <head-toolbar customClass="custom-title" title="Resources"></head-toolbar> -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>resources</ion-title>
+  <ion-navbar light>
+    <ion-title>
+        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+        <span class="nav__title custom-title">Resources</span>
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <!--Segment buttons-->
+  <ion-segment [(ngModel)]="categories" color="secondary">
+    <ion-segment-button isActive value="all" (ionSelect)="selectedFriends()">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="Research" (ionSelect)="selectedEnemies()">
+      Research
+    </ion-segment-button>
+    <ion-segment-button value="Handouts" (ionSelect)="selectedEnemies()">
+      Handouts
+    </ion-segment-button>
+    <ion-segment-button value="Infographics" (ionSelect)="selectedEnemies()">
+      Infographics
+    </ion-segment-button>
+  </ion-segment>
+  <div class="card__wrapper">
+    <recipe-card *ngFor="let card of cards" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, card)" ></recipe-card>   
+  </div>
+      
+  <!--Infinity scroll list-->
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content>
+      <recipe-card></recipe-card>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

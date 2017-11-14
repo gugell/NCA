@@ -4,15 +4,18 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+<!-- <head-toolbar customClass="custom-title" title="Video"></head-toolbar> -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>video</ion-title>
+  <ion-navbar light>
+    <ion-title>
+        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+        <span class="nav__title custom-title">Video</span>
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+    <div class="card__wrapper">
+      <recipe-card [title]="cards[0].title" [imgUrl]="cards[0].img" (click)="handleClick($event, cards[0])" ></recipe-card>
+      <recipe-card *ngFor="let card of cards | slice:1" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, card)" ></recipe-card>   
+    </div>
 </ion-content>

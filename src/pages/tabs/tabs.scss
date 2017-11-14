@@ -1,2 +1,41 @@
 page-tabs {
+    .tab-button-icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 2.4rem;
+    }
+    .ion-ios,
+    .ion-md {
+        &-custom-home {
+            background-image: url('../assets/icon/Icons/HomeIcon.png');        
+        }
+        &-custom-recipes {
+            background-image: url('../assets/icon/Icons/RecipesIcon.png');        
+        }
+        &-custom-resources {
+            background-image: url('../assets/icon/Icons/ResourceIcon.png');        
+        }
+        &-custom-videocam {
+            background-image: url('../assets/icon/Icons/VideoIcon.png');        
+        }
+        &-custom-menu {
+            background-image: url('../assets/icon/Icons/MenuIcon.png');        
+        }
+        &-custom-home-outline {
+            background-image: url('../assets/icon/Icons/HomeIcon.png');        
+        }
+        &-custom-recipes-outline {
+            background-image: url('../assets/icon/Icons/RecipesIcon.png');        
+        }
+        &-custom-resources-outline {
+            background-image: url('../assets/icon/Icons/ResourceIcon.png');        
+        }
+        &-custom-videocam-outline {
+            background-image: url('../assets/icon/Icons/VideoIcon.png');        
+        }
+        &-custom-menu-outline {
+            background-image: url('../assets/icon/Icons/MenuIcon.png');        
+        }
+    }
 }
