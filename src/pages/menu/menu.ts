@@ -19,6 +19,7 @@ export class MenuPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.pages = [
+      { title: 'Meal Plans', component: 'MealPlansPage' },      
       { title: 'CNA Experts', component: 'MeetTheExpertsPage' },
       { title: 'Ask the Experts', component: 'ExpertsQaPage' },
       { title: 'About', component: 'AboutCnaPage' },

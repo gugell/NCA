@@ -124,13 +124,18 @@
     text-align: center;
 }
 
-.toolbar-title .custom-title {
-    padding: 0;
-    margin: 0;
-    font-size: 2.25rem;
-    line-height: 2.25rem;
-    transform: translateY(50%);
-    max-width: 100%;
+.toolbar-title {
+    .custom-title {
+        padding: 0;
+        margin: 0;
+        font-size: 2.25rem;
+        line-height: 2.25rem;
+        transform: translateY(50%);
+        max-width: 100%;
+        &--mealPlans {
+            transform: translateY(0%);
+        }
+    }
 }
 
 .nav__title {

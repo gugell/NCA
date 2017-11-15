@@ -1,5 +1,5 @@
 <!--
-  Generated template for the MealPlansPage page.
+  Generated template for the InnerMealPlansPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -8,19 +8,19 @@
   <ion-navbar light>
     <ion-title>
         <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
-        <span class="nav__title custom-title custom-title--mealPlans">Meal<br>plans</span>
+        <span class="nav__title custom-title custom-title--mealPlans">Meal<br>Plans</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="mealPlans__content" >
-    <ion-card *ngFor="let plan of mealPlansList$ | async" (click)="handleClick($event, plan)">
+    <ion-card>
       <img [src]="plan.img"/>
       <ion-card-content>
         <ion-card-title>
           {{ plan.title }}
         </ion-card-title>
-        <!-- <div [innerHTML]="plan.content"></div> -->
+        <div [innerHTML]="plan.content"></div>
       </ion-card-content>
     </ion-card>
 </ion-content>
