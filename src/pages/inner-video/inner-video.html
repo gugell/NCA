@@ -13,13 +13,13 @@
 </ion-header>
 
 <ion-content>
-  {{context.date || ''}}
-  <img class="innerPage__img" src="{{context.img}}"/>  
+  <img class="innerPage__img" src="{{context.url}}"/>  
   <ion-card>
+    <div>Ablum id: {{context.id || ''}}</div>
     <div class="card-title">{{context.title}}</div>
   </ion-card>
 </ion-content>
-<ion-footer no-border>
+<!-- <ion-footer no-border>
   <ion-toolbar class="footer__toolbar" color="secondary">
     <button color="primary" clear ion-button icon-only start navPush="CommentsPage" >
       <ion-icon name="md-text"></ion-icon>
@@ -28,4 +28,4 @@
       <ion-icon name="md-share"></ion-icon>
     </button>
   </ion-toolbar>
-</ion-footer>
+</ion-footer> -->

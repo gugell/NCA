@@ -7,6 +7,9 @@ import {
 } from 'ionic-angular';
 
 import { InnerVideoPage } from '../inner-video/inner-video';
+import { PostsListService } from '../../services/posts-list.service';
+import { Observable } from 'rxjs/Observable';
+import { Post } from '../../models/post.model';
 
 @IonicPage()
 @Component({
@@ -16,45 +19,36 @@ import { InnerVideoPage } from '../inner-video/inner-video';
 export class ResourcesPage {
   categories: string = 'all';
   cards: Array<{title: string, img: string}>;
+  postsList$: Observable<any[]>;
+  showSpinner: boolean;
+  loader = this.loadingCtrl.create({
+              content: "Please wait...",
+              duration: 3000
+            });
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
+    this.postsList('resources');
+  }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController) {
-    this.cards = [{
-      title: 'Lorem ipsum lorem agies interos 1',
-      img: 'https://picsum.photos/160/100/?image=141'
-    },{
-      title: 'Lorem ipsum lorem agies interos 2',
-      img: 'https://picsum.photos/160/100/?image=152'
-    },{
-      title: 'Lorem ipsum lorem agies interos 3',
-      img: 'https://picsum.photos/160/100/?image=142'
-    },{
-      title: 'Lorem ipsum lorem agies interos 4',
-      img: 'https://picsum.photos/160/100/?image=143'
-    },{
-      title: 'Lorem ipsum lorem agies interos 5',
-      img: 'https://picsum.photos/160/100/?image=154'
-    },{
-      title: 'Lorem ipsum lorem agies interos 6',
-      img: 'https://picsum.photos/160/100/?image=144'
-    },{
-      title: 'Lorem ipsum lorem agies interos 7',
-      img: 'https://picsum.photos/160/100/?image=145'
-    },{
-      title: 'Lorem ipsum lorem agies interos 8',
-      img: 'https://picsum.photos/160/100/?image=156'
-    },{
-      title: 'Lorem ipsum lorem agies interos 9',
-      img: 'https://picsum.photos/160/100/?image=146'
-    },{
-      title: 'Lorem ipsum lorem agies interos 10',
-      img: 'https://picsum.photos/160/100/?image=147'
-    }];
+  postsList(category) {
+    this.showSpinner = false; 
+    this.loader.present();  
+    
+    this.postsList$ = this.posts
+    .getPostList(category)
+    .snapshotChanges()
+    .map( changes => {
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    }, () => {this.loader.dismiss()});
+
+    // this.postsList$.subscribe( () => this.loader.dismiss());
   }
   
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-      duration: 3000
+      content: "Loading..."
     });
     loader.present();
   }
@@ -67,28 +61,67 @@ export class ResourcesPage {
     }, 500);
   }
 
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
-  
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
   }
-  selectedFriends() {
-    console.log('selectedFriends');
-    this.cards = this.cards.reverse();
+
+  selectedAll() {
+    this.showSpinner = true;    
+    this.postsList$ = this.posts
+    .getPostList('resources')
+    .snapshotChanges()
+    .map( changes => {
+        this.showSpinner = false;
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    });
   }
-  selectedEnemies() {
-    console.log('selectedEnemies');
-    this.cards = this.cards.reverse();    
+
+  selectedInfographics() {
+    this.showSpinner = true; 
+    this.postsList$ = this.posts
+    .getPostList('recipes')
+    .snapshotChanges()
+    .map( changes => {
+        this.showSpinner = false;      
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    });
   }
+
+  selectedHandouts() {
+    this.showSpinner = true; 
+    this.postsList$ = this.posts
+    .getPostList('videos')
+    .snapshotChanges()
+    .map( changes => {
+        this.showSpinner = false;      
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    });
+  }
+
+  selectedResearch() {
+    this.showSpinner = true; 
+    this.postsList$ = this.posts
+    .getPostList('meal')
+    .snapshotChanges()
+    .map( changes => {
+        this.showSpinner = false;      
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    });
+  }
+
   handleClick($event, params) {
-    console.log(params);
     this.navCtrl.push(InnerVideoPage, params);
   }
 }

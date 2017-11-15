@@ -14,29 +14,25 @@
   </ion-navbar>
   <!--Segment buttons-->
   <ion-segment [(ngModel)]="categories" color="secondary" fixed>
-    <ion-segment-button isActive value="all" (ionSelect)="selectedFriends()">
+    <ion-segment-button isActive value="all" (ionSelect)="selectedAll()">
       All
     </ion-segment-button>
-    <ion-segment-button value="Research" (ionSelect)="selectedEnemies()">
+    <ion-segment-button value="Research" (ionSelect)="selectedResearch()">
       Research
     </ion-segment-button>
-    <ion-segment-button value="Handouts" (ionSelect)="selectedEnemies()">
+    <ion-segment-button value="Handouts" (ionSelect)="selectedHandouts()">
       Handouts
     </ion-segment-button>
-    <ion-segment-button value="Infographics" (ionSelect)="selectedEnemies()">
+    <ion-segment-button value="Infographics" (ionSelect)="selectedInfographics()">
       Infographics
     </ion-segment-button>
   </ion-segment>
 </ion-header>
 <ion-content>
 
-  <!-- Ion-refresher -->
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
   <div class="card__wrapper">
-    <recipe-card *ngFor="let card of cards" [title]="card.title" [imgUrl]="card.img"  (click)="handleClick($event, card)" ></recipe-card>   
+    <ion-spinner *ngIf="showSpinner" name="crescent"></ion-spinner>  
+    <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.thumbnailUrl"  (click)="handleClick($event, card)" ></recipe-card>   
   </div>
       
   <!--Infinity scroll list-->

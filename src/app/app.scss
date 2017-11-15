@@ -194,8 +194,12 @@ recipe-card {
     width: 50%;
     .card-content {
         padding: 0px 12px;
+        height: 7rem;
     }
     .card-title {
+        padding: 10px 0;
+        margin: 0;
+        line-height: 2rem;
         font-size: 1.75rem;
         color: #136735;
         font-family: 'CenturyGothic';
@@ -211,3 +215,19 @@ recipe-card {
     }
 }
 //===========/.END RECIPE CARD===========//
+ion-content ion-spinner {
+    display: inline-block;
+    width: 28px!important;
+    height: 28px!important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform: translateY(-15px);
+}
+ion-content ion-spinner * {
+    stroke: #7bbd71!important;
+    fill: #222;
+  }

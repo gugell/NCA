@@ -18,6 +18,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HeadToolbarComponent } from '../components/head-toolbar/head-toolbar';
 import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
 import { InnerVideoPage } from '../pages/inner-video/inner-video';
+import { PostsListService } from '../services/posts-list.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { InnerVideoPage } from '../pages/inner-video/inner-video';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PostsListService
   ]
 })
 export class AppModule {}
