@@ -18,6 +18,10 @@
     font-family: 'CenturyGothic';    
 }
 
+.has-refresher > .scroll-content {
+    border-top: none;
+}
+
 .text {
     font-family: 'CenturyGothic';
     color: #136735;
@@ -54,12 +58,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    // position: absolute;
-    // left: 2rem;
-    // top: 0;
-    // bottom: 0;
-    // margin: auto;
-    // z-index: 10;
 }
 
 .text {

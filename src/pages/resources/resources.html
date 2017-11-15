@@ -12,10 +12,8 @@
         <span class="nav__title custom-title">Resources</span>
     </ion-title>
   </ion-navbar>
-</ion-header>
-<ion-content>
   <!--Segment buttons-->
-  <ion-segment [(ngModel)]="categories" color="secondary">
+  <ion-segment [(ngModel)]="categories" color="secondary" fixed>
     <ion-segment-button isActive value="all" (ionSelect)="selectedFriends()">
       All
     </ion-segment-button>
@@ -29,8 +27,16 @@
       Infographics
     </ion-segment-button>
   </ion-segment>
+</ion-header>
+<ion-content>
+
+  <!-- Ion-refresher -->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div class="card__wrapper">
-    <recipe-card *ngFor="let card of cards" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, card)" ></recipe-card>   
+    <recipe-card *ngFor="let card of cards" [title]="card.title" [imgUrl]="card.img"  (click)="handleClick($event, card)" ></recipe-card>   
   </div>
       
   <!--Infinity scroll list-->

@@ -1,10 +1,10 @@
 <ion-header>
-  <ion-navbar hideBackButton="true" light>
+  <ion-toolbar hideBackButton="true" light>
     <button *ngIf="backBtn" ion-button icon-only class="arrow-back--custom" navPop></button>
     <ion-title>
         <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
         <!-- <span class="nav__title">CENTER FOR<br> NUTRITION<br> AND ATHLETICS</span> -->
         <span class="nav__title {{customClass}}">{{title}}</span>
     </ion-title>
-  </ion-navbar>
+  </ion-toolbar>
 </ion-header>
