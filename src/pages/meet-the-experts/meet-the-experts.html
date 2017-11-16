@@ -7,12 +7,24 @@
 <ion-header>
   <ion-navbar light>
     <ion-title>
-        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
-        <span class="nav__title custom-title">Recipes</span>
+      <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+      <span class="nav__title custom-title">Experts</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <div class="card__wrapper">
+    <div *ngFor="let expert of expertsList$ | async" class="experts__card" (click)="handleClick($event, expert)">
+      <ion-card class="recipe-card" >
+        <img [src]="expert.img" />
+        <ion-card-content>
+          <ion-card-title>
+              {{expert.name}}<br>
+              {{expert.titul}}
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>

@@ -8,6 +8,7 @@ import { MeetTheExpertsPage } from '../pages/meet-the-experts/meet-the-experts';
 import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutCnaPage } from '../pages/about-cna/about-cna';
+import { MealPlansPage } from '../pages/meal-plans/meal-plans';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,6 +20,7 @@ export class MyApp {
   constructor( public app: App, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ) {
 
     // this.pages = [
+    //   { title: 'Meal Plans', component: 'MealPlansPage' },      
     //   { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
     //   { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
     //   { title: 'ContactsPage', component: 'ContactsPage' },

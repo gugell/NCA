@@ -34,10 +34,10 @@ export class MealPlansPage {
     .getPostList(category)
     .snapshotChanges()
     .map( changes => {
-        return changes.map( c => ({
-          key: c.payload.key, 
-          ...c.payload.val() 
-        }));
+      return changes.map( c => ({
+        key: c.payload.key, 
+        ...c.payload.val() 
+    }));
     }, () => {this.loader.dismiss()});
 
   }

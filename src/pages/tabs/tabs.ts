@@ -18,7 +18,7 @@ export class TabsPage {
   tab2Root = ResourcesPage;
   tab3Root = RecipesPage;
   tab4Root = VideoPage;
-  // tab4Root = MenuPage;
+  tab5Root = MenuPage;
 
   constructor(private app: App, public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
 
@@ -27,7 +27,7 @@ export class TabsPage {
   ionViewDidLoad() {
     let tab4 = document.querySelector('#tab-t0-4');
     tab4.addEventListener('click', () => {
-      this.navCtrl.push(MenuPage);
+      // this.navCtrl.push(MenuPage);
       // this.menuCtrl.toggle();
       // this.app.getActiveNavs()[0].pop();
       // this.app.getActiveNavs()[0].push(MenuPage);

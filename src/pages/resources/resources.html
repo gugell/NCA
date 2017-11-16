@@ -31,7 +31,7 @@
 <ion-content>
 
   <div class="card__wrapper">
-    <ion-spinner *ngIf="showSpinner" name="crescent"></ion-spinner>  
+    <ion-spinner *ngIf="showSpinner" name="crescent"></ion-spinner> 
     <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.thumbnailUrl"  (click)="handleClick($event, card)" ></recipe-card>   
   </div>
       

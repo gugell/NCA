@@ -37,7 +37,7 @@ import { PostsListService } from '../services/posts-list.service';
     BrowserModule,
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
-      tabsHideOnSubPages: true,
+      // tabsHideOnSubPages: true,
     }),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule 
@@ -46,7 +46,8 @@ import { PostsListService } from '../services/posts-list.service';
   entryComponents: [
     MyApp,
     TabsPage,
-    HeadToolbarComponent,    
+    HeadToolbarComponent, 
+    RecipeCardComponent,   
     HomePage,
     RecipesPage,
     ResourcesPage,

@@ -1,3 +1,12 @@
 page-meet-the-experts {
+    .experts__card {
+        width: 50%;
+        img {
+            max-height: 15rem;
+        }
+        ion-card-title {
+            font-size: 1.8rem;
 
+        }
+    }
 }
