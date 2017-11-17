@@ -131,7 +131,7 @@
 .toolbar-title {
     .custom-title {
         padding: 0;
-        margin: 0;
+        margin: 0 0 0 5px;
         font-size: 2.25rem;
         line-height: 2.25rem;
         transform: translateY(50%);
@@ -155,6 +155,7 @@
     padding-top: .5rem;
     text-transform: uppercase;
     white-space: normal;
+    margin-left: 5px;
 }
 
 .segment-ios .segment-button:first-of-type,

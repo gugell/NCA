@@ -27,6 +27,8 @@ export class MeetTheExpertsPage {
   }
 
   postsList(category) {
+    this.loader.present();  
+    
     this.expertsList$ = this.posts
     .getPostList(category)
     .snapshotChanges()
@@ -35,7 +37,7 @@ export class MeetTheExpertsPage {
         key: c.payload.key, 
         ...c.payload.val() })
       )
-    });
+    }, () => {this.loader.dismiss()});
   }
   
   presentLoading() {

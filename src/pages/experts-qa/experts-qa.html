@@ -7,12 +7,36 @@
 <ion-header>
   <ion-navbar light>
     <ion-title>
-        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
-        <span class="nav__title custom-title">Recipes</span>
+      <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+      <span class="nav__title custom-title custom-title--mealPlans">Ask the
+        <br>experts</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content class="mealPlans__content">
+  <img src="https://picsum.photos/600/470?image=73" />
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title class="innerMeal__title text">
+        Ask the Experts
+      </ion-card-title>
+      <div class="card__body"></div>
+      <div class="qa__form">
+        <p>
+          <ion-label>Submit your question</ion-label>
+          <ion-textarea type="text"></ion-textarea>
+        </p>
+        <p class="form__subtext">
+            Enter your question in the provided space and we will get back to you 
+            as soon as possible with an answer
+        </p>
+        <p>
+          <ion-label>Enter your e-mail address</ion-label>
+          <ion-input type="text"></ion-input>
+        </p>
+        <button ion-button color="secondary" full>Submit</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

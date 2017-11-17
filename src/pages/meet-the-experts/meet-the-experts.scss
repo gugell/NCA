@@ -4,9 +4,16 @@ page-meet-the-experts {
         img {
             max-height: 15rem;
         }
+        .card-content {
+            padding: 8px 14px;
+        }
         ion-card-title {
             font-size: 1.8rem;
-
+            padding: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-height: 4rem;
+            overflow: hidden;
         }
     }
 }
