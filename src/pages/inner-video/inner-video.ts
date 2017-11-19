@@ -20,7 +20,7 @@ export class InnerVideoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InnerVideoPage');
+    console.log('ionViewDidLoad InnerVideoPage', this. context);
   }
 
 }

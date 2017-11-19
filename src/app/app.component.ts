@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { App, Platform } from 'ionic-angular';
+import { App, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -9,23 +9,25 @@ import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutCnaPage } from '../pages/about-cna/about-cna';
 import { MealPlansPage } from '../pages/meal-plans/meal-plans';
+import { SlicePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;
-  // pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any}>;
 
-  constructor( public app: App, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ) {
+  constructor( public app: App, platform: Platform, statusBar: StatusBar, private menuCtrl: MenuController, splashScreen: SplashScreen ) {
 
-    // this.pages = [
-    //   { title: 'Meal Plans', component: 'MealPlansPage' },      
-    //   { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
-    //   { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
-    //   { title: 'ContactsPage', component: 'ContactsPage' },
-    //   { title: 'AboutCnaPage', component: 'AboutCnaPage' }
-    // ];
+    this.pages = [
+      { title: 'Meal Plans', component: 'MealPlansPage' },      
+      { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
+      { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
+      { title: 'ContactsPage', component: 'ContactsPage' },
+      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
+    ];
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -35,8 +37,9 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    this.app.getRootNav().push(page.component);
-    // this.app.getActiveNavs()[0].push(page.component);
+  pageOpen(page) {
+    this.app.getRootNav().push(page);
+    // this.app.getActiveNavs()[0].push(page);
+    this.menuCtrl.toggle();    
   }
 }

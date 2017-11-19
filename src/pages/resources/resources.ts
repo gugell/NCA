@@ -23,13 +23,14 @@ export class ResourcesPage {
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
               content: "Please wait...",
-              duration: 3000
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('resources');
+    this.postsList('resources').then(() => {
+      this.loader.dismiss();
+    });
   }
 
-  postsList(category) {
+  async postsList(category) {
     this.showSpinner = false; 
     this.loader.present();  
     
@@ -51,14 +52,6 @@ export class ResourcesPage {
       content: "Loading..."
     });
     loader.present();
-  }
-
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    }, 500);
   }
 
   ionViewDidLoad() {

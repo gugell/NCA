@@ -7,7 +7,7 @@
 <ion-header>
   <ion-navbar light>
     <ion-title>
-        <img class="nav__logo" width="45px" height="45px" src="../../assets/imgs/logo.png" />
+        <img class="nav__logo" width="45px" height="45px" src="../assets/imgs/logo.png" />
         <span *ngIf="plan.title" class="nav__title custom-title custom-title--mealPlans">Meal<br>Plans</span>
         <span *ngIf="plan.name" class="nav__title custom-title">Experts</span>
     </ion-title>
@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content class="mealPlans__content" >
-    <img [src]="plan.img"/>    
+    <img class="width--100" [src]="plan.img"/>    
     <ion-card>
       <ion-card-content>
         <ion-card-title class="innerMeal__title text">

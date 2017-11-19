@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,268 +13,371 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .scroll-content {
-    background-color: #d9ebf2;
+  background-color: #d9ebf2!important;
 }
 
 .tab-button-text {
-    font-family: 'CenturyGothic';    
+  font-family: 'CenturyGothic';
 }
 
-.has-refresher > .scroll-content {
-    border-top: none;
+.tab-button {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 1px;
+    height: 80%;
+    background-color: #136734;
+  }
+}
+
+.has-refresher>.scroll-content {
+  border-top: none;
 }
 
 .text {
-    font-family: 'CenturyGothic';
-    color: #136735;
+  font-family: 'CenturyGothic';
+  color: #136735;
 }
+
 .hero-background {
-    margin-bottom: -5px;
+  margin-bottom: -5px;
 }
+
 .header-md::after {
-    display: none;
+  display: none;
 }
+
 .ion-ios-arrow-back:before,
 .ion-md-arrow-back:before {
-    display: none;
+  display: none;
 }
+
 .title-md {
-    left: 0;
-    top: 0;
-    padding: 0 70px 1px;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    pointer-events: none;
+  left: 0;
+  top: 0;
+  padding: 0 70px 1px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  pointer-events: none;
 }
+
 .back-button.show-back-button .button-inner {
-    // display: inline-block;
-    // width: 3.3rem;
-    // height: 3.3rem;
-    width: 3.2rem;
-    height: 3.2rem;
-    border-radius: 50%;
-    background-image: url('../assets/icon/Icons/BackButton.png');        
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  // display: inline-block;
+  // width: 3.3rem;
+  // height: 3.3rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  background-image: url('../assets/icon/Icons/BackButton.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .text {
-    font-family: 'CenturyGothic';
+  font-family: 'CenturyGothic';
 }
 
 .toolbar-ios ion-title {
-    padding: 0 70px 1px;
+  padding: 0 70px 1px;
 }
 
 .category__wrapper {
-    color: #136734;
-    background-color: #D9EBF2;
-    .category__title {
-        margin: 0;
-        font-size: 2.25rem !important;
-        padding: 2rem 0;
-        text-align: center;
-        padding: 0;
-        line-height: 4.5rem;
-        border-bottom: 2px solid #136735;
-        font-weight: 400;
-    }
-    .category__item {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        padding: 0 5px;
-        background-color: #ffffff;
-        margin: 0 5px 5px;        
-        padding: 6px;
-        &:last-child {
-            margin-bottom: 0;
-        }
-        .img__container {
-            width: 42%;
-            min-width: 130px;
-        }
-        .item__header {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: flex-start;
-            width: 53%;
-        }
-        .card-title {
-            font-size: 1.75rem;
-            line-height: 2rem;
-        }
-        .card-subtitle {
-            font-size: 1.5rem;
-            color: #7bbd71;
-            font-weight: 400;
-            margin-top: auto;
-        }
-        .item__img {
-            img {
-                height: 100%;
-            }
-        }
-    }
-}
-
-.toolbar-title {
+  color: #136734;
+  background-color: #D9EBF2;
+  .category__title {
+    margin: 0;
+    font-size: 2.25rem !important;
+    padding: 2rem 0;
     text-align: center;
+    padding: 0;
+    line-height: 4.5rem;
+    border-bottom: 2px solid #136735;
+    font-weight: 400;
+  }
+  .category__item {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0 5px;
+    background-color: #ffffff;
+    margin: 0 5px 5px;
+    padding: 6px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .img__container {
+      width: 42%;
+      min-width: 130px;
+    }
+    .item__header {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      width: 53%;
+    }
+    .card-title {
+      font-family: 'CenturyGothic';
+      font-size: 1.75rem;
+      line-height: 2rem;
+      max-height: 6rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .card-subtitle {
+      font-family: 'CenturyGothic';      
+      font-size: 1.5rem;
+      color: #7bbd71;
+      font-weight: 400;
+      margin-top: auto;
+      margin-bottom: .2rem;
+    }
+    .item__img {
+      img {
+        height: 100%;
+      }
+    }
+  }
 }
 
 .toolbar-title {
-    .custom-title {
-        padding: 0;
-        margin: 0 0 0 5px;
-        font-size: 2.25rem;
-        line-height: 2.25rem;
-        transform: translateY(50%);
-        max-width: 100%;
-        &--mealPlans {
-            transform: translateY(0%);
-        }
+  text-align: center;
+}
+
+.toolbar-title {
+  .custom-title {
+    padding: 0;
+    margin: 0 0 0 5px;
+    font-size: 2.25rem;
+    line-height: 2.25rem;
+    transform: translateY(50%);
+    max-width: 100%;
+    &--mealPlans {
+      transform: translateY(0%);
     }
+  }
 }
 
 .nav__title {
-    font-family: 'CenturyGothic';
-    font-size: 1.5rem;
-    line-height: 1.3rem;
-    font-weight: 400;
-    max-width: 110px;
-    vertical-align: top;
-    display: inline-block;
-    text-align: left;
-    color: #136734;
-    padding-top: .5rem;
-    text-transform: uppercase;
-    white-space: normal;
-    margin-left: 5px;
+  font-family: 'CenturyGothic';
+  font-size: 1.5rem;
+  line-height: 1.3rem;
+  font-weight: 400;
+  max-width: 110px;
+  vertical-align: top;
+  display: inline-block;
+  text-align: left;
+  color: #136734;
+  padding-top: .5rem;
+  text-transform: uppercase;
+  white-space: normal;
+  margin-left: 5px;
 }
 
 .segment-ios .segment-button:first-of-type,
 .segment-ios .segment-button:last-of-type {
-    border-radius: 0;
+  border-radius: 0;
 }
 
 .segment-ios .segment-button:first-of-type,
 .segment-md .segment-button:first-of-type {
-    flex: .4;
+  flex: .4;
 }
 
 .segment-ios-secondary .segment-button,
 .segment-md .segment-button {
-    background-color: #7bbd71;
-    color: #ffffff;
-    border-color: #7bbd71;
-    font-family: 'CenturyGothic';
-    opacity: 1;
-    text-transform: none;
+  background-color: #7bbd71;
+  color: #ffffff;
+  border-color: #7bbd71;
+  font-family: 'CenturyGothic';
+  opacity: 1;
+  text-transform: none;
 }
 
 .segment-ios .segment-button {
-    height: 4.2rem;
-    line-height: 4rem;
+  height: 4.2rem;
+  line-height: 4rem;
 }
 
 .segment-ios .segment-button.segment-activated,
 .segment-md-secondary .segment-button.segment-activated {
-    background-color: #136735;  
-    border-color: #136735;    
-    color: #ffffff;
+  background-color: #136735;
+  border-color: #136735;
+  color: #ffffff;
 }
 
 .segment-ios-secondary .segment-button:hover:not(.segment-activated) {
-    background-color: #7bbd71;    
+  background-color: #7bbd71;
 }
 
 .segment-md-secondary .segment-button.activated {
-    color: #ffffff;    
+  color: #ffffff;
 }
 
 //==============RECIPE CARD==============//
 recipe-card {
-    max-width: 50%;
-    width: 50%;
-    .card-content {
-        padding: 0px 12px;
-        height: 7rem;
-    }
-    .card-title {
-        padding: 10px 0;
-        margin: 0;
-        line-height: 2rem;
-        font-size: 1.75rem;
-        color: #136735;
-        font-family: 'CenturyGothic';
-    }
+  max-width: 50%;
+  width: 50%;
+  .card-content {
+    padding: 0px 12px;
+    height: 7rem;
+  }
+  .card-title {
+    padding: 10px 0;
+    margin: 0;
+    max-height: 5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.75rem;
+    color: #136735;
+    font-family: 'CenturyGothic';
+  }
 }
+
 .card__wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    recipe-card:first-child {
-        max-width: 100%;
-        width: 100%;
-    }
+  background-color: #d9ebf2;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  recipe-card:first-child {
+    max-width: 100%;
+    width: 100%;
+  }
 }
+
 //===========/.END RECIPE CARD===========//
 ion-content ion-spinner {
-    display: inline-block;
-    width: 28px!important;
-    height: 28px!important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    transform: translateY(-15px);
+  display: inline-block;
+  width: 28px!important;
+  height: 28px!important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transform: translateY(-15px);
 }
+
 ion-content ion-spinner * {
-    stroke: #7bbd71!important;
-    fill: #222;
+  stroke: #7bbd71!important;
+  fill: #222;
 }
 
 //===================MEAL PLANS CARD ===================//
 .mealPlans__content {
-    .innerMeal__title {
-        border-bottom: 1px solid #136735;
-        margin-bottom: 2rem;
-        padding: 0 0 12px;
-        text-align: center;
+  .innerMeal__title {
+    border-bottom: 1px solid #136735;
+    margin-bottom: 2rem;
+    padding: 0 0 12px;
+    text-align: center;
+  }
+  .card__body {
+    color: #136735;
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #136735;
+      &:last-of-type {}
     }
-    .card__body {
-        color: #136735;
-        h4 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            font-style: italic;
-            color: #136735;
-            &:last-of-type {
-            }  
-        }
-        ul:last-of-type {
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #136735; 
-            margin-bottom: 1.5rem;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            padding-left: .5rem;
-            font-size: 1.4rem;
-        }
-        p {
-            text-align: center;
-            color: #136735; 
-            font-size: 1.4rem;            
-        }
+    ul:last-of-type {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #136735;
+      margin-bottom: 1.5rem;
     }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      padding-left: .5rem;
+      font-size: 1.4rem;
+    }
+    p {
+      text-align: center;
+      color: #136735;
+      font-size: 1.4rem;
+    }
+  }
 }
+
 //===============/.END MEAL PLANS CARD =================//
+//==================== MENU =======================//
+.menu__wrapper {
+  height: 100%;
+  background-color: #D9EBF2;
+  .category__wrapper .category__title {
+    text-align: left;
+    line-height: 5rem;
+    border-bottom: 2px solid #7bbd71;
+    position: relative;
+    padding-left: 5.5rem;
+    &:after {
+      content: '';
+      width: 3.5rem;
+      height: 3.5rem;
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    &--meal:after {
+      background-image: url('../assets/icon/Icons/MealPlanIcon.png');
+    }
+    &--experts:after {
+      background-image: url('../assets/icon/Icons/ExpertIcon.png');
+    }
+    &--qa:after {
+      background-image: url('../assets/icon/Icons/AskExpert.png');
+    }
+    &--about:after {
+      background-image: url('../assets/icon/Icons/About.png');
+    }
+    &--contact:after {
+      background-image: url('../assets/icon/Icons/ContactIcon.png');
+    }
+    &--search:after {
+      background-image: url('../assets/icon/Icons/SearchIcon.png');
+    } // &--products:after {
+    //     background-image: url('../assets/icon/Icons/MealPlanIcon.png');
+    // }
+    // &--experts:after {
+    //     background-image: url('../assets/icon/Icons/ExpertIcon.png');
+    // }
+    // &--qa:after {
+    //     background-image: url('../assets/icon/Icons/AskExpert.png');
+    // }
+    // &--about:after {
+    //     background-image: url('../assets/icon/Icons/About.png');
+    // }
+    // &--contact:after {
+    //     background-image: url('../assets/icon/Icons/ContactIcon.png');
+    // }
+    // &--search:after {
+    //     background-image: url('../assets/icon/Icons/SearchIcon.png');
+    // }
+  }
+}
+.tab-button:last-of-type:after {
+  content: none;
+}
+//====================/.MENU =======================//
+.mealPlans__content .card__body p {
+  margin-bottom: 1rem;
+}
+
+img.width--100 {
+  width: 100%;
+}

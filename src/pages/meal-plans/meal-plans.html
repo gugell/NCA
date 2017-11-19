@@ -15,7 +15,7 @@
 
 <ion-content class="mealPlans__content" >
     <ion-card *ngFor="let plan of mealPlansList$ | async" (click)="handleClick($event, plan)">
-      <img [src]="plan.img"/>
+      <img class="width--100" [src]="plan.img"/>
       <ion-card-content>
         <ion-card-title>
           {{ plan.title }}

@@ -6,26 +6,32 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{context.title}}</ion-title>
+  <ion-navbar light>
+    <ion-title>
+        <img class="nav__logo" width="45px" height="45px" src="../assets/imgs/logo.png" />
+        <span class="nav__title custom-title">{{context.pageTitle}}</span>
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-<ion-content>
-  <img class="innerPage__img" src="{{context.url}}"/>  
+<ion-content class="mealPlans__content innerPage__content" >
+  <img class="width--100" [src]="context.card.url"/>    
   <ion-card>
-    <div>Ablum id: {{context.id || ''}}</div>
-    <div class="card-title">{{context.title}}</div>
+    <ion-card-content>
+      <ion-card-title class="innerMeal__title text">
+        {{ context.card.title || context.card.name }}<br>
+      </ion-card-title>
+      <div class="card__body" [innerHTML]="context.card.body"></div>
+    </ion-card-content>
   </ion-card>
 </ion-content>
-<!-- <ion-footer no-border>
-  <ion-toolbar class="footer__toolbar" color="secondary">
-    <button color="primary" clear ion-button icon-only start navPush="CommentsPage" >
-      <ion-icon name="md-text"></ion-icon>
-    </button>
-    <button color="primary" clear ion-button icon-only end>
-      <ion-icon name="md-share"></ion-icon>
-    </button>
-  </ion-toolbar>
-</ion-footer> -->
+
+<!-- <ion-content>
+  <img class="innerPage__img" src="{{context.card.url}}"/>  
+  <ion-card>
+    <div>Ablum id: {{context.card.id || ''}}</div>
+    <div class="card-title">{{context.card.title}}</div>
+    <div class="card__body" [innerHTML]="context.card.body"></div>
+  </ion-card>
+</ion-content> -->
+

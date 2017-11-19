@@ -19,13 +19,7 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     <div class="card__wrapper">
-      <recipe-card [title]="cards[0].title" [imgUrl]="cards[0].img" (click)="handleClick($event, cards[0])" ></recipe-card>
-      <recipe-card *ngFor="let card of cards | slice:1" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, card)" ></recipe-card>   
+      <!-- <recipe-card [title]="cards[0].title" [imgUrl]="cards[0].img" (click)="handleClick($event, cards[0])" ></recipe-card> -->
+      <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.url" (click)="handleClick($event, {card: card, pageTitle: 'Video'})" ></recipe-card>   
     </div>
-    <!--Infinity scroll list-->
-    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-      <ion-infinite-scroll-content>
-        <recipe-card></recipe-card>
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
 </ion-content>

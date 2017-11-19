@@ -1,3 +1,43 @@
 page-contacts {
-
+    .contacts__content {
+        text-align: center;
+        transform: translateY(50%);
+    }
+    .content__logo {
+        width: 6rem;
+        height: 6rem;
+        background-image: url("../assets/icon/logo.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: inline-block;
+    }
+    .content__title,
+    .content__subtitle,
+    .button {
+        font-family: 'CenturyGothic';
+        font-weight: 400;
+    }
+    .content__title {
+        margin-top: 0;
+        font-size: 3.3rem;
+        letter-spacing: 1px;
+        color: #136735;
+    }
+    .content__subtitle {
+        color: #7bbd71;
+        font-size: 2.4rem;
+        font-weight: 400;
+        letter-spacing: .5px;
+    }
+    button.button {
+        position: relative;
+        font-size: 1.5rem;
+        max-width: 40%;
+        margin: auto;
+        margin-top: 5rem;
+    }
+    .icon {
+        margin-right: 0.5rem;
+        font-size: 4rem;
+    }
 }

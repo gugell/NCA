@@ -19,6 +19,7 @@ import { HeadToolbarComponent } from '../components/head-toolbar/head-toolbar';
 import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
 import { InnerVideoPage } from '../pages/inner-video/inner-video';
 import { PostsListService } from '../services/posts-list.service';
+import { PagesContentService } from '../services/pages-content';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { PostsListService } from '../services/posts-list.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PostsListService
+    PostsListService,
+    PagesContentService
   ]
 })
 export class AppModule {}

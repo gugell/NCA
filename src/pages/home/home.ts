@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { InnerVideoPage } from '../inner-video/inner-video';
+import { PostsListService } from '../../services/posts-list.service';
+import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the HomePage page.
@@ -15,22 +17,44 @@ import { InnerVideoPage } from '../inner-video/inner-video';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  videos: any[] = [
-    {
-      title: 'Lorem ipsume 1',
-      date: '12/11/41'
-    },
-    {
-      title: 'Lorem ipsume 2',
-      date: '30/07/91'
-    },
-    {
-      title: 'Lorem ipsume 3',
-      date: '01/11/11'
-    }
-  ];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  cards: Array<{title: string, img: string}>;
+  videosList$: Observable<any[]>;
+  resourcesList$: Observable<any[]>;
+  recipesList$: Observable<any[]>;
+  showSpinner: boolean;
+  loader = this.loadingCtrl.create({
+              content: "Please wait...",
+              duration: 100
+            });
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
+    this.postsList('resources');
+    this.postsList('recipes');
+    this.postsList('videos');
+  }
+  
+  async postsList(category) {
+    this.showSpinner = false; 
+    this.loader.present();  
     
+    this[`${category}List$`] = this.posts
+    .getPostList(category)
+    .snapshotChanges()
+    .map( changes => {
+        return changes.map( c => ({
+          key: c.payload.key, 
+          ...c.payload.val() 
+        }));
+    }, () => {this.loader.dismiss()});
+
+    // this.postsList$.subscribe( () => this.loader.dismiss());
+  }
+  
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Loading..."
+    });
+    loader.present();
   }
   
   ionViewDidLoad() {

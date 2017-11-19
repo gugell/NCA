@@ -5,6 +5,9 @@ page-tabs {
         background-position: center;
         height: 2.4rem;
     }
+    .tabs-ios .tab-button {
+        padding: 5px 2px;
+    }
     .ion-ios,
     .ion-md {
         &-custom-home {

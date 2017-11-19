@@ -20,13 +20,14 @@ export class MealPlansPage {
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
               content: "Please wait...",
-              duration: 3000
             });
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('/mealPlans/');
+    this.postsList('/mealPlans/').then(() => {
+      this.loader.dismiss();
+    });
   }
 
-  postsList(category) {
+  async postsList(category) {
     this.showSpinner = false; 
     this.loader.present();  
     
@@ -38,10 +39,9 @@ export class MealPlansPage {
         key: c.payload.key, 
         ...c.payload.val() 
     }));
-    }, () => {this.loader.dismiss()});
-
+    });
   }
-  
+
   presentLoading() {
     let loader = this.loadingCtrl.create({
       content: "Loading..."

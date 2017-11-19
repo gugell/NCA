@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { PostsListService } from '../../services/posts-list.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 /**
  * Generated class for the AboutCnaPage page.
  *
@@ -14,14 +16,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'about-cna.html',
 })
 export class AboutCnaPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  page$: any;
+  showSpinner: boolean;
+  loader = this.loadingCtrl.create({
+              content: "Please wait...",
+            });
+  constructor(public navCtrl: NavController, db: AngularFireDatabase, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
+    this.page$ = db.object('pageAbout').valueChanges();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AboutCnaPage');
+  ngOnInit() {
+    console.log(this.page$);
+
   }
-  navback() {
-    this.navCtrl.popToRoot();
+  
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Loading..."
+    });
+    loader.present();
   }
 }

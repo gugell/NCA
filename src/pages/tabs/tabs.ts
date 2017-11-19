@@ -21,17 +21,17 @@ export class TabsPage {
   tab5Root = MenuPage;
 
   constructor(private app: App, public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
-
+MenuController
   }
 
   ionViewDidLoad() {
     let tab4 = document.querySelector('#tab-t0-4');
-    tab4.addEventListener('click', () => {
-      // this.navCtrl.push(MenuPage);
-      // this.menuCtrl.toggle();
-      // this.app.getActiveNavs()[0].pop();
-      // this.app.getActiveNavs()[0].push(MenuPage);
-    });
+    // tab4.addEventListener('click', () => {
+    //   // this.navCtrl.push(MenuPage);
+    //   // this.menuCtrl.toggle();
+    //   // this.app.getActiveNavs()[0].pop();
+    //   // this.app.getActiveNavs()[0].push(MenuPage);
+    // });
   }
 
 }
