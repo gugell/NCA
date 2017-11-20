@@ -25,9 +25,11 @@ export class ResourcesPage {
               content: "Please wait...",
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('resources').then(() => {
-      this.loader.dismiss();
-    });
+    this.postsList('resources');
+  }
+
+  ngAfterViewInit() {
+    this.loader.dismiss();    
   }
 
   async postsList(category) {

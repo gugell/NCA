@@ -247,9 +247,17 @@ recipe-card {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  .recipe-card {
+    img {
+      height: 9rem;
+    }
+  }
   recipe-card:first-child {
     max-width: 100%;
     width: 100%;
+    img {
+      height: auto;
+    }
   }
 }
 
@@ -378,6 +386,17 @@ ion-content ion-spinner * {
   margin-bottom: 1rem;
 }
 
+img.no-photo {
+  background-image: url('../assets/imgs/no-photo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 img.width--100 {
   width: 100%;
+}
+
+.tabs-md .tab-button[aria-selected=true] .tab-button-text {
+  transform: scale(1);
 }

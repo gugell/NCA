@@ -28,9 +28,9 @@ export class HomePage {
             });
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('resources');
-    this.postsList('recipes');
-    this.postsList('videos');
+      this.postsList('resources');
+      this.postsList('recipes');
+      this.postsList('videos');
   }
   
   async postsList(category) {
@@ -45,7 +45,7 @@ export class HomePage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    }, () => {this.loader.dismiss()});
+    });
 
     // this.postsList$.subscribe( () => this.loader.dismiss());
   }
@@ -59,6 +59,7 @@ export class HomePage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+    this.showSpinner = false;
   }
   handleClick($event, params) {
     console.log(params);
