@@ -73,13 +73,13 @@
   // display: inline-block;
   // width: 3.3rem;
   // height: 3.3rem;
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 50%;
-  background-image: url('../assets/icon/Icons/BackButton.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  // width: 3.2rem;
+  // height: 3.2rem;
+  // border-radius: 50%;
+  // background-image: url('../assets/icon/Icons/BackButton.png');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
 }
 
 .text {
@@ -227,13 +227,14 @@ recipe-card {
   max-width: 50%;
   width: 50%;
   .card-content {
-    padding: 0px 12px;
+    padding: 1rem 1.2rem 0;
     height: 7rem;
   }
   .card-title {
-    padding: 10px 0;
+    padding: 0;
     margin: 0;
-    max-height: 5rem;
+    max-height: 4rem;
+    line-height: 2rem;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.75rem;
@@ -295,7 +296,6 @@ ion-content ion-spinner * {
       font-weight: 700;
       font-style: italic;
       color: #136735;
-      &:last-of-type {}
     }
     ul:last-of-type {
       padding-bottom: 1.5rem;
@@ -327,55 +327,7 @@ ion-content ion-spinner * {
     line-height: 5rem;
     border-bottom: 2px solid #7bbd71;
     position: relative;
-    padding-left: 5.5rem;
-    &:after {
-      content: '';
-      width: 3.5rem;
-      height: 3.5rem;
-      position: absolute;
-      left: 1rem;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    &--meal:after {
-      background-image: url('../assets/icon/Icons/MealPlanIcon.png');
-    }
-    &--experts:after {
-      background-image: url('../assets/icon/Icons/ExpertIcon.png');
-    }
-    &--qa:after {
-      background-image: url('../assets/icon/Icons/AskExpert.png');
-    }
-    &--about:after {
-      background-image: url('../assets/icon/Icons/About.png');
-    }
-    &--contact:after {
-      background-image: url('../assets/icon/Icons/ContactIcon.png');
-    }
-    &--search:after {
-      background-image: url('../assets/icon/Icons/SearchIcon.png');
-    } // &--products:after {
-    //     background-image: url('../assets/icon/Icons/MealPlanIcon.png');
-    // }
-    // &--experts:after {
-    //     background-image: url('../assets/icon/Icons/ExpertIcon.png');
-    // }
-    // &--qa:after {
-    //     background-image: url('../assets/icon/Icons/AskExpert.png');
-    // }
-    // &--about:after {
-    //     background-image: url('../assets/icon/Icons/About.png');
-    // }
-    // &--contact:after {
-    //     background-image: url('../assets/icon/Icons/ContactIcon.png');
-    // }
-    // &--search:after {
-    //     background-image: url('../assets/icon/Icons/SearchIcon.png');
-    // }
+    padding-left: 6rem;
   }
 }
 .tab-button:last-of-type:after {
@@ -399,4 +351,30 @@ img.width--100 {
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-text {
   transform: scale(1);
+}
+
+.back-button-icon {
+  transform: rotateZ(-130deg);
+  font-size: 4rem;
+  &:after {
+    color: #136735;  
+    content: "\f46e";
+  }
+}
+
+.img__container {
+  position: relative;
+}
+
+.button-play-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: red;
+  height: 6rem;
+  width: 6rem;
+  font-size: 4rem;
 }

@@ -20,6 +20,10 @@ import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
 import { InnerVideoPage } from '../pages/inner-video/inner-video';
 import { PostsListService } from '../services/posts-list.service';
 import { PagesContentService } from '../services/pages-content';
+import { StreamingMedia } from '@ionic-native/streaming-media';
+import { HttpModule } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule }   from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,8 @@ import { PagesContentService } from '../services/pages-content';
       backButtonText: '',
       // tabsHideOnSubPages: true,
     }),
+    HttpModule,
+    HttpClientModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule 
   ],
@@ -61,7 +67,9 @@ import { PagesContentService } from '../services/pages-content';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PostsListService,
-    PagesContentService
+    HttpClient,
+    PagesContentService,
+    StreamingMedia
   ]
 })
 export class AppModule {}

@@ -15,7 +15,10 @@
 </ion-header>
 
 <ion-content class="mealPlans__content innerPage__content" >
-  <img class="width--100" [src]="context.card.url"/>    
+  <div class="img__container">
+    <img class="width--100" [src]="context.card.img"/>
+    <button *ngIf="this.video" class="button-play-video" ion-button icon-only clear (click)="playVideo()" ><ion-icon name="md-arrow-dropright-circle"></ion-icon></button>
+  </div>
   <ion-card>
     <ion-card-content>
       <ion-card-title class="innerMeal__title text">

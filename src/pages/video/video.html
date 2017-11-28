@@ -20,6 +20,6 @@
     </ion-refresher>
     <div class="card__wrapper">
       <!-- <recipe-card [title]="cards[0].title" [imgUrl]="cards[0].img" (click)="handleClick($event, cards[0])" ></recipe-card> -->
-      <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.url" (click)="handleClick($event, {card: card, pageTitle: 'Video'})" ></recipe-card>   
+      <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, {card: card, pageTitle: 'Video'})" ></recipe-card>   
     </div>
 </ion-content>
