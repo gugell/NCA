@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyCwX9liD8qwEMgNb6oveHjaJUuQYmUFK5Q",
-    authDomain: "cna-food.firebaseapp.com",
-    databaseURL: "https://cna-food.firebaseio.com",
-    projectId: "cna-food",
-    storageBucket: "cna-food.appspot.com",
-    messagingSenderId: "452145987000"
+    apiKey: "AIzaSyBT2ryGJ8DKhlxEBFV78OeLL9KNWOR9ZFc",
+    authDomain: "project-cna.firebaseapp.com",
+    databaseURL: "https://project-cna.firebaseio.com",
+    projectId: "project-cna",
+    storageBucket: "project-cna.appspot.com",
+    messagingSenderId: "969771849669"
   };

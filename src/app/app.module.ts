@@ -40,13 +40,13 @@ import { HttpClientModule }   from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),    
     IonicModule.forRoot(MyApp, {
       backButtonText: '',
       // tabsHideOnSubPages: true,
     }),
     HttpModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule 
   ],
   bootstrap: [IonicApp],
