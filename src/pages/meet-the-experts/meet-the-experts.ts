@@ -22,23 +22,23 @@ export class MeetTheExpertsPage {
               content: "Please wait...",
             });
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('/experts/').then(() => {
-      this.loader.dismiss();
-    });
+    this.postsList('/experts/');
   }
 
   async postsList(category) {
     this.loader.present();  
     
     this.expertsList$ = this.posts
-    .getPostList(category)
+    .getPostList(category, 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
       return changes.map( c => ({
         key: c.payload.key, 
         ...c.payload.val() })
       )
-    }, () => {this.loader.dismiss()});
+    })
+    .do( () => (this.loader.dismiss()) );
+    
   }
   
   presentLoading() {
@@ -49,6 +49,9 @@ export class MeetTheExpertsPage {
   }
 
   handleClick(event, item) {
-    this.navCtrl.push("InnerMealPlansPage", item);
+    this.navCtrl.push("InnerMealPlansPage", {
+      roundedImage: true,
+      ...item
+    });
   }
 }

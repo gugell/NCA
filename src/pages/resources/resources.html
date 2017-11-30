@@ -33,6 +33,7 @@
   <div class="card__wrapper">
     <ion-spinner *ngIf="showSpinner" name="crescent"></ion-spinner> 
     <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.img"  (click)="handleClick($event, {card: card, pageTitle: 'Resources'})" ></recipe-card>   
+
   </div>
       
   <!--Infinity scroll list-->

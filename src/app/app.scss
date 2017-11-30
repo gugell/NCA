@@ -243,6 +243,11 @@ recipe-card {
   }
 }
 
+.recipe-card {
+  margin: 6px;
+  width: calc(100% - 12px);
+}
+
 .card__wrapper {
   background-color: #d9ebf2;
   display: flex;
@@ -373,8 +378,10 @@ img.width--100 {
   right: 0;
   bottom: 0;
   margin: auto;
-  color: red;
+  color: #7bbd71;
   height: 6rem;
   width: 6rem;
   font-size: 4rem;
+  background-color:rgba(255,255,255, .5);
+  border-radius: 50%;
 }

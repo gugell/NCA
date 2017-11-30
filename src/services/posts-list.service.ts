@@ -9,8 +9,15 @@ export class PostsListService {
 
     constructor(private db: AngularFireDatabase) { }
 
-    getPostList(category) {
-        return this.postListRef.list(`/${category}/`);
+    getPostList(category,filterName, categoryId) {
+        return this.postListRef.list(`/${category}/`, ref =>
+        categoryId ? ref.orderByChild(filterName).equalTo(categoryId) : ref );
+    }
+
+    getResourcesList(category) {
+        return this.postListRef.list('/resources', ref =>
+        category ? ref.orderByChild('category').equalTo(category) : ref
+      )
     }
 
 }

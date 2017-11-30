@@ -32,7 +32,7 @@ export class MealPlansPage {
     this.loader.present();  
     
     this.mealPlansList$ = this.posts
-    .getPostList(category)
+    .getPostList(category, 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
       return changes.map( c => ({

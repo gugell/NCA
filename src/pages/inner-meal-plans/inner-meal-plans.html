@@ -15,14 +15,17 @@
 </ion-header>
 
 <ion-content class="mealPlans__content" >
-    <img class="width--100" [src]="plan.img"/>    
+    <div *ngIf="plan.roundedImage" class="img--rounded">
+      <img [src]="plan.img" alt="">
+    </div>
+    <img *ngIf="!plan.roundedImage" class="width--100" [src]="plan.img"/>    
     <ion-card>
       <ion-card-content>
         <ion-card-title class="innerMeal__title text">
           {{ plan.title || plan.name }}<br>
           {{ plan.titul}}
         </ion-card-title>
-        <div class="card__body" [innerHTML]="plan.content"></div>
+        <div class="card__body" [innerHTML]="plan.html"></div>
       </ion-card-content>
     </ion-card>
 </ion-content>

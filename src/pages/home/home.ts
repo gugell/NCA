@@ -23,14 +23,11 @@ export class HomePage {
   recipesList$: Observable<any[]>;
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
-              content: "Please wait...",
-              duration: 100
+              content: "Please wait..."
             });
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-      this.postsList('resources');
-      this.postsList('recipes');
-      this.postsList('videos');
+
   }
   
   async postsList(category) {
@@ -38,7 +35,7 @@ export class HomePage {
     this.loader.present();  
     
     this[`${category}List$`] = this.posts
-    .getPostList(category)
+    .getPostList(category, 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
         return changes.map( c => ({
@@ -46,8 +43,7 @@ export class HomePage {
           ...c.payload.val() 
         }));
     });
-
-    // this.postsList$.subscribe( () => this.loader.dismiss());
+    
   }
   
   presentLoading() {
@@ -59,6 +55,10 @@ export class HomePage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
+
+    this.postsList('resources');
+    this.postsList('recipes');
+    this.postsList('videos').then( () => (this.loader.dismiss()) );
     this.showSpinner = false;
   }
   handleClick($event, params) {

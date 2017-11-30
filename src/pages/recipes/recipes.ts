@@ -35,7 +35,7 @@ export class RecipesPage {
     this.loader.present();  
     
     this.postsList$ = this.posts
-    .getPostList(category)
+    .getPostList(category, 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
         return changes.map( c => ({

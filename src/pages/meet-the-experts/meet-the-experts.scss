@@ -1,8 +1,13 @@
 page-meet-the-experts {
+    .img-wrapper {
+        // max-height: 9rem;
+        // overflow: hidden;
+    }
     .experts__card {
         width: 50%;
         img {
             max-height: 15rem;
+            height: auto!important;
         }
         .card-content {
             padding: 8px 14px;

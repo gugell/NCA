@@ -21,7 +21,7 @@
         {{ (page$ | async)?.title }}<br>
         {{ (page$ | async)?.subtitle}}
       </ion-card-title>
-      <div class="card__body" [innerHTML]="(page$ | async)?.content"></div>
+      <div class="card__body" [innerHTML]="(page$ | async)?.html"></div>
     </ion-card-content>
   </ion-card>
 </ion-content>

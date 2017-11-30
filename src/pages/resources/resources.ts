@@ -9,7 +9,9 @@ import {
 import { InnerVideoPage } from '../inner-video/inner-video';
 import { PostsListService } from '../../services/posts-list.service';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Post } from '../../models/post.model';
+import 'rxjs/add/operator/switchMap';
 
 @IonicPage()
 @Component({
@@ -25,19 +27,19 @@ export class ResourcesPage {
               content: "Please wait...",
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('resources');
+    this.postsList('resources', 'categoryId', undefined);
   }
 
   ngAfterViewInit() {
     this.loader.dismiss();    
   }
 
-  async postsList(category) {
+  async postsList(category, filterName, categoryId) {
     this.showSpinner = false; 
     this.loader.present();  
     
     this.postsList$ = this.posts
-    .getPostList(category)
+    .getPostList(category, filterName, categoryId )
     .snapshotChanges()
     .map( changes => {
         return changes.map( c => ({
@@ -63,7 +65,7 @@ export class ResourcesPage {
   selectedAll() {
     this.showSpinner = true;    
     this.postsList$ = this.posts
-    .getPostList('resources')
+    .getPostList('resources', 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
         this.showSpinner = false;
@@ -77,7 +79,7 @@ export class ResourcesPage {
   selectedInfographics() {
     this.showSpinner = true; 
     this.postsList$ = this.posts
-    .getPostList('recipes')
+    .getPostList('resources', 'categoryId', 2)
     .snapshotChanges()
     .map( changes => {
         this.showSpinner = false;      
@@ -85,13 +87,19 @@ export class ResourcesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    });
+    }).do( (changes) => {
+      setTimeout(()=>{
+        console.log('====================================');
+        console.log('postsList$', changes);
+        console.log('====================================');
+      },0)
+    } );
   }
-
+  
   selectedHandouts() {
     this.showSpinner = true; 
     this.postsList$ = this.posts
-    .getPostList('videos')
+    .getPostList('resources', 'categoryId', 1)
     .snapshotChanges()
     .map( changes => {
         this.showSpinner = false;      
@@ -100,12 +108,13 @@ export class ResourcesPage {
           ...c.payload.val() 
         }));
     });
+
   }
 
   selectedResearch() {
     this.showSpinner = true; 
     this.postsList$ = this.posts
-    .getPostList('meal')
+    .getPostList('resources', 'categoryId', 3)
     .snapshotChanges()
     .map( changes => {
         this.showSpinner = false;      

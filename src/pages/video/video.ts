@@ -18,10 +18,6 @@ export class VideoPage {
               duration: 3000
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('videos').then(() => {
-      this.loader.dismiss();
-    });
-    
   }
 
   async postsList(category) {
@@ -29,14 +25,15 @@ export class VideoPage {
     this.loader.present();  
     
     this.postsList$ = this.posts
-    .getPostList(category)
+    .getPostList(category, 'categoryId', undefined)
     .snapshotChanges()
     .map( changes => {
         return changes.map( c => ({
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    }, () => {this.loader.dismiss()});
+    },)
+    .do( () => (this.loader.dismiss()) );
 
     // this.postsList$.subscribe( () => this.loader.dismiss());
   }
@@ -59,6 +56,7 @@ export class VideoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VideoPage');
+    this.postsList('videos');    
   }
 
   handleClick($event, params) {

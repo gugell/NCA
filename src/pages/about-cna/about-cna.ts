@@ -27,7 +27,6 @@ export class AboutCnaPage {
 
   ngOnInit() {
     console.log(this.page$);
-
   }
   
   presentLoading() {
