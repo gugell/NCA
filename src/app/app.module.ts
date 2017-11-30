@@ -24,6 +24,7 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
 import { HttpModule } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule }   from '@angular/common/http';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { HttpClientModule }   from '@angular/common/http';
     }),
     HttpModule,
     HttpClientModule,
-    AngularFireDatabaseModule 
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,7 +70,8 @@ import { HttpClientModule }   from '@angular/common/http';
     PostsListService,
     HttpClient,
     PagesContentService,
-    StreamingMedia
+    StreamingMedia,
+    HTTP
   ]
 })
 export class AppModule {}

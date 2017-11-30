@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { HttpClient } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http';
 import 'rxjs/add/operator/do';
 
 /**
@@ -23,8 +24,9 @@ export class InnerVideoPage {
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public http: HttpClient, 
-    private streamingMedia: StreamingMedia
+    // public http: HttpClient, 
+    private streamingMedia: StreamingMedia,
+    private http: HTTP
   ) {
     this.context = this.navParams.data;
   }
@@ -40,13 +42,22 @@ export class InnerVideoPage {
     if(this.context.card.link) {
       let splitedUrl = this.context.card.link.split('/');
       let videoID = splitedUrl[+splitedUrl.length - 1];
-
-      this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' })
-          .do( (res) => {
-              let html = res.match(/<source .+ \/>/i);
+      // let newHeaders = {'origin' : '*'};
+      // let myHeaders = new Headers(newHeaders);
+      // let myInit = { method: 'GET',
+      //                 headers: myHeaders,
+      //                 mode: 'cors',
+      //                 cache: 'default' };
+      // fetch(`https://www.youpak.com/${videoID}`)
+      // .then((res) => (res.blob()))
+      // .then( (res) => {console.log('RES from fetch', res);})
+      this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
+          .then( (res) => {
+            
+              let html = res.data.match(/<source .+ \/>/i);
               this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
           })
-          .subscribe( (res) => { this.streamingMedia.playVideo(this.videoUrl, options); });
+          .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
     }
   }
 

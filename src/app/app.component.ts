@@ -20,7 +20,6 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor( public app: App, platform: Platform, statusBar: StatusBar, private menuCtrl: MenuController, splashScreen: SplashScreen ) {
-
     this.pages = [
       { title: 'Meal Plans', component: 'MealPlansPage' },      
       { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
