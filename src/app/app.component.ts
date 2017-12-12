@@ -9,6 +9,7 @@ import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
 import { ContactsPage } from '../pages/contacts/contacts';
 import { AboutCnaPage } from '../pages/about-cna/about-cna';
 import { MealPlansPage } from '../pages/meal-plans/meal-plans';
+import { SearchPage } from '../pages/search/search';
 import { SlicePipe } from '@angular/common';
 import { DatePipe } from '@angular/common';
 
@@ -25,7 +26,8 @@ export class MyApp {
       { title: 'MeetTheExpertsPage', component: 'MeetTheExpertsPage' },
       { title: 'ExpertsQaPage', component: 'ExpertsQaPage' },
       { title: 'ContactsPage', component: 'ContactsPage' },
-      { title: 'AboutCnaPage', component: 'AboutCnaPage' }
+      { title: 'AboutCnaPage', component: 'AboutCnaPage' },
+      { title: 'Search', component: 'SearchPage' }
     ];
 
     platform.ready().then(() => {

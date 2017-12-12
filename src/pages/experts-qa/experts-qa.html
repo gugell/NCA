@@ -26,7 +26,7 @@
     <div class="qa__form">
         <p>
           <ion-label>Submit your question</ion-label>
-          <ion-textarea type="text"></ion-textarea>
+          <ion-textarea type="text" [(ngModel)]="email.body"></ion-textarea>
         </p>
         <p class="form__subtext">
             Enter your question in the provided space and we will get back to you 
@@ -34,9 +34,9 @@
         </p>
         <p>
           <ion-label>Enter your e-mail address</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-input type="text" [(ngModel)]="email.email"></ion-input>
         </p>
-        <button ion-button color="secondary" full>Submit</button>
+        <button ion-button color="secondary" full (click)="sendMail()">Submit</button>
       </div>
     </ion-card-content>
   </ion-card>

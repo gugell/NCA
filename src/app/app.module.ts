@@ -25,6 +25,8 @@ import { HttpModule } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule }   from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { EmailService } from '../services/email-service';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { HTTP } from '@ionic-native/http';
     HttpClient,
     PagesContentService,
     StreamingMedia,
-    HTTP
+    HTTP,
+    EmailComposer,
+    EmailService
   ]
 })
 export class AppModule {}
