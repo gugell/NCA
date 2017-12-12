@@ -27,7 +27,6 @@
     "@ionic-native/streaming-media": "^4.4.2",
     "@ionic/storage": "2.1.1",
     "angularfire2": "^5.0.0-rc.3",
-    "com.hutchind.cordova.plugins.streamingmedia": "~0.1.4",
     "cordova-android": "6.3.0",
     "cordova-plugin-advanced-http": "^1.9.0",
     "cordova-plugin-device": "^1.1.7",
