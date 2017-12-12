@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { EmailService } from '../../services/email-service';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 /**
  * Generated class for the ContactsPage page.
@@ -14,13 +16,35 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'contacts.html',
 })
 export class ContactsPage {
+  title: string = '';
+  body: string = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public emailService: EmailService,
+    public emailComposer: EmailComposer
+  ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ContactsPage');
   }
+
+  sendMail() {
+    let email = {
+      to: 'mq-9@outlook.com',
+      cc: 's3rgant@ukr.net',
+      attachments: [],
+      subject: 'Message from CNA.',
+      body: 'Hello'
+    };
+
+    // Send a text message using default options
+    this.emailComposer.open(email);
+
+  }
+
   navback() {
     this.navCtrl.popToRoot();
   }

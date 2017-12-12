@@ -1,0 +1,41 @@
+page-search {
+    .search__container {
+        .input {
+            max-width: 86%;
+            border: 1px solid rgb(123, 189, 113);
+            margin: 1rem auto auto;
+            background-color: rgb(255, 255, 255);
+        }
+        .text-input {
+            margin: 6px 8px;
+            font-size: 1.75rem;
+        }
+    }
+    .search__icon {
+        position: relative;
+        height: 10rem;
+
+        &:before {
+            content: '\004a';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            margin: auto;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-size: 9.5rem;
+            line-height: 4.5rem;
+            display: inline-block;
+            font-family: 'Glyphter';
+            font-style: normal;
+            font-weight: normal;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            max-width: 10rem;
+            color: #1C5E32;
+        }
+    }
+}
