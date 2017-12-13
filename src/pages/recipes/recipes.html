@@ -14,10 +14,6 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-    <!-- Ion-refresher -->
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
     <div class="card__wrapper">
       <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.thumbnailUrl" (click)="handleClick($event, {card: card, pageTitle: 'Recipes'})" ></recipe-card>   
     </div>

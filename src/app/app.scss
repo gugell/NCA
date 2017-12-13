@@ -254,15 +254,27 @@ recipe-card {
   flex-flow: row wrap;
   justify-content: space-between;
   .recipe-card {
+    .recipe-card__img-container {
+      height: 11rem;
+      max-height: 11rem;
+      overflow: hidden;
+      background-image: url('../assets/icon/Icons/no-photo.png');
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
     img {
-      height: 9rem;
+      height: 100%;
+      min-height: 11rem;
     }
   }
   recipe-card:first-child {
     max-width: 100%;
     width: 100%;
-    img {
+    .recipe-card__img-container {
       height: auto;
+      max-height: 24rem;
+      overflow: hidden;
     }
   }
 }
@@ -352,6 +364,7 @@ img.no-photo {
 
 img.width--100 {
   width: 100%;
+  min-height: 22rem;
 }
 
 .tabs-md .tab-button[aria-selected=true] .tab-button-text {
@@ -369,6 +382,12 @@ img.width--100 {
 
 .img__container {
   position: relative;
+  min-height: 20rem;
+  background-image: url('../assets/icon/Icons/no-photo.png');
+  background-size: 25%;
+  background-repeat: no-repeat;
+  background-position: center;
+  // background-color: #ffffff;
 }
 
 .button-play-video {

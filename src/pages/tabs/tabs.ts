@@ -26,12 +26,6 @@ MenuController
 
   ionViewDidLoad() {
     let tab4 = document.querySelector('#tab-t0-4');
-    // tab4.addEventListener('click', () => {
-    //   // this.navCtrl.push(MenuPage);
-    //   // this.menuCtrl.toggle();
-    //   // this.app.getActiveNavs()[0].pop();
-    //   // this.app.getActiveNavs()[0].push(MenuPage);
-    // });
   }
 
 }

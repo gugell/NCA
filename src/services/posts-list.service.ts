@@ -21,9 +21,9 @@ export class PostsListService {
       )
     }
 
-    searchPosts(category, start, end): AngularFireList<any> {
+    searchPosts(category, start): AngularFireList<any> {
         return this.db.list(`/${category}`, ref => 
-        ref.orderByChild('title').limitToFirst(2).startAt(start).endAt(end)
+        ref.orderByChild('title').limitToFirst(2).startAt(start)
     )}
 
 }

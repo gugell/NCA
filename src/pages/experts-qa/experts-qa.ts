@@ -20,7 +20,7 @@ export class ExpertsQaPage {
   page$: any;
   email: object = {};
   loader = this.loadingCtrl.create({
-    content: "Please wait...",
+    content: "Please wait..."
   });
 
   constructor(
@@ -32,8 +32,7 @@ export class ExpertsQaPage {
     public emailComposer: EmailComposer) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ExpertsQaPage');
+  ngOnInit() {
     this.loader.present();
     let that = this;
     async function getContent() {
@@ -41,6 +40,10 @@ export class ExpertsQaPage {
       that.loader.dismiss();
     }
     getContent();
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ExpertsQaPage');
   }
 
   sendMail() {

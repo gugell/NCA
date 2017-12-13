@@ -12,12 +12,12 @@ import { RecipesPage } from '../pages/recipes/recipes';
 import { ResourcesPage } from '../pages/resources/resources';
 import { MenuPage } from '../pages/menu/menu';
 import { VideoPage } from '../pages/video/video';
+// import { HeadToolbarComponent } from '../components/head-toolbar/head-toolbar';
+import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
+import { InnerVideoPage } from '../pages/inner-video/inner-video';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HeadToolbarComponent } from '../components/head-toolbar/head-toolbar';
-import { RecipeCardComponent } from '../components/recipe-card/recipe-card';
-import { InnerVideoPage } from '../pages/inner-video/inner-video';
 import { PostsListService } from '../services/posts-list.service';
 import { PagesContentService } from '../services/pages-content';
 import { StreamingMedia } from '@ionic-native/streaming-media';
@@ -28,6 +28,7 @@ import { HTTP } from '@ionic-native/http';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { EmailService } from '../services/email-service';
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +38,7 @@ import { EmailService } from '../services/email-service';
     ResourcesPage,
     MenuPage,
     VideoPage,
-    HeadToolbarComponent,
+    // HeadToolbarComponent,
     RecipeCardComponent,
     InnerVideoPage
   ],
@@ -56,7 +57,7 @@ import { EmailService } from '../services/email-service';
   entryComponents: [
     MyApp,
     TabsPage,
-    HeadToolbarComponent, 
+    // HeadToolbarComponent, 
     RecipeCardComponent,   
     HomePage,
     RecipesPage,

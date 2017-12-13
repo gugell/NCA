@@ -16,9 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class InnerMealPlansPage {
   plan: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.plan = this.navParams.data;
-    console.log('this.navParams', this.navParams.data);
-    
+    this.plan = this.navParams.data; 
   }
 
   ionViewDidLoad() {
