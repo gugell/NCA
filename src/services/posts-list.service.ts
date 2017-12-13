@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Post } from '../models/post.model';
 import { Observable } from 'rxjs/Observable';
 
@@ -20,5 +20,10 @@ export class PostsListService {
         category ? ref.orderByChild('category').equalTo(category) : ref
       )
     }
+
+    searchPosts(category, start, end): AngularFireList<any> {
+        return this.db.list(`/${category}`, ref => 
+        ref.orderByChild('title').limitToFirst(2).startAt(start).endAt(end)
+    )}
 
 }

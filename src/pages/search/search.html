@@ -18,7 +18,19 @@
   <div class="search__container">
       <p>
         <ion-label class="search__icon"></ion-label>
-        <ion-input type="text" [(ngModel)]="searchInput" (input)="showInput($event)"></ion-input>
+        <ion-input type="text" [(ngModel)]="searchInput" (keydown)="showInput($event)"></ion-input>
       </p>
+  </div>
+  <ion-card *ngFor="let plan of videos | async">
+    <img class="width--100" [src]="plan.img"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ plan?.title }}
+      </ion-card-title>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="videos.length < 1">
+    <hr>
+    No resoult found :(
   </div>
 </ion-content>

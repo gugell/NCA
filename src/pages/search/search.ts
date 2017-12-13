@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { PostsListService } from '../../services/posts-list.service';
 import { constructor } from 'firebase/app';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subject } from 'rxjs/Subject';
 import { AngularFireAction, AngularFireDatabase } from 'angularfire2/database';
 
 /**
@@ -19,27 +20,22 @@ import { AngularFireAction, AngularFireDatabase } from 'angularfire2/database';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-  items$: Observable<any[]>;
-  size$: BehaviorSubject<string|null>;
+  videos;
+  startAt = new Subject();
+  endAt = new Subject();
   
   constructor(public navCtrl: NavController, public navParams: NavParams, private posts: PostsListService, db: AngularFireDatabase) {
-    this.size$ = new BehaviorSubject(null);
-    this.items$ = this.size$.switchMap(size =>
-      db.list('/resources', ref =>
-        size ? ref.orderByChild('title').equalTo(size) : ref
-      ).snapshotChanges()
-    );
+
   }
 
   ionViewDidLoad() {
+    this.posts.searchPosts('videos', this.startAt, this.endAt)
+              .valueChanges()
+              .subscribe(videos => this.videos = videos);
     console.log('ionViewDidLoad SearchPage');
   }
 
-  async showInput(event) {
-
-    await this.size$.next();    
-    console.log('====================================');
-    console.log('event', this.items$);
-    console.log('====================================');
+  showInput(event) {
+    console.log('this.videos', this.videos);
   }
 }
