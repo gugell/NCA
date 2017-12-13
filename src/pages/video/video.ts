@@ -14,10 +14,14 @@ export class VideoPage {
   postsList$: Observable<any[]>;
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
-              content: "Please wait...",
-              duration: 3000
+              content: "Please wait..."
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
+
+  }
+
+  ngOnInit() {
+     
   }
 
   async postsList(category) {
@@ -32,10 +36,7 @@ export class VideoPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    },)
-    .do( () => (this.loader.dismiss()) );
-
-    // this.postsList$.subscribe( () => this.loader.dismiss());
+    });
   }
   
   presentLoading() {
@@ -45,23 +46,17 @@ export class VideoPage {
     loader.present();
   }
 
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad VideoPage');
-    this.postsList('videos');    
+    this.postsList('videos')
+    .then(() => {
+      this.loader.dismiss();
+    });
   }
 
   handleClick($event, params) {
     console.log(params);
-    this.navCtrl.push(InnerVideoPage, params);
+    this.navCtrl.push('InnerVideoPage', params);
   }
 
 }

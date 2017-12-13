@@ -1,6 +1,8 @@
 <!-- Generated template for the RecipeCardComponent component -->
 <ion-card class="recipe-card">
-  <img src="{{imgUrl}}" />
+  <div class="recipe-card__img-container">
+    <img *ngIf="imgUrl" src="{{imgUrl}}" />
+  </div>
   <ion-card-content>
     <ion-card-title>
       {{title}}

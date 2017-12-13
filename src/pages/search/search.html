@@ -11,6 +11,18 @@
       <span class="nav__title custom-title">Search</span>
     </ion-title>
   </ion-navbar>
+  <!--Segment buttons-->
+  <ion-segment class="search-header__segment" [(ngModel)]="categories" color="secondary" fixed>
+    <ion-segment-button isActive value="resources" (ionSelect)="changeCategory('resources')">
+      Resources
+    </ion-segment-button>
+    <ion-segment-button value="recipes" (ionSelect)="changeCategory('recipes')">
+      Recipes
+    </ion-segment-button>
+    <ion-segment-button value="videos" (ionSelect)="changeCategory('videos')">
+      Videos
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 
@@ -18,7 +30,24 @@
   <div class="search__container">
       <p>
         <ion-label class="search__icon"></ion-label>
-        <ion-input type="text" [(ngModel)]="searchInput" (input)="showInput($event)"></ion-input>
+        <ion-input type="text" [(ngModel)]="searchInput" (input)="showInput($event)" placeholder="Search..."></ion-input>
       </p>
+  </div>
+  <div>
+    <div class="category__wrapper search__wrapper">
+      <h3 class="category__title">{{categories}}</h3>        
+      <div>
+        <div class="category__item" *ngFor="let item of result$" (click)="handleClick($event, {card: item, pageTitle: categories})">
+          <div class="img__container"><img class="item__img" width="100%" height="100px"  [src]="item.thumbnailUrl" /></div>
+          <div class="item__header">
+                  <div class="card-title">{{item?.title}}</div>
+                  <div class="card-subtitle">{{36 * 100000 | date:'dd/MM/yyyy'}}</div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="result$.length < 1">
+        No resoult found :(
+      </div>
+    </div>
   </div>
 </ion-content>

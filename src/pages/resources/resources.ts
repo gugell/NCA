@@ -27,11 +27,10 @@ export class ResourcesPage {
               content: "Please wait...",
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('resources', 'categoryId', undefined);
   }
 
-  ngAfterViewInit() {
-    this.loader.dismiss();    
+  ngOnInit() {
+     
   }
 
   async postsList(category, filterName, categoryId) {
@@ -46,9 +45,7 @@ export class ResourcesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    }, () => {this.loader.dismiss()});
-
-    // this.postsList$.subscribe( () => this.loader.dismiss());
+    })
   }
   
   presentLoading() {
@@ -60,6 +57,10 @@ export class ResourcesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
+    this.postsList('resources', 'categoryId', undefined)
+    .then(() => {
+      this.loader.dismiss();      
+    });   
   }
 
   selectedAll() {
@@ -73,6 +74,9 @@ export class ResourcesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
+    })
+    .do(() => {
+      this.showSpinner = false; 
     });
   }
 
@@ -87,13 +91,10 @@ export class ResourcesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    }).do( (changes) => {
-      setTimeout(()=>{
-        console.log('====================================');
-        console.log('postsList$', changes);
-        console.log('====================================');
-      },0)
-    } );
+    })
+    .do(() => {
+      this.showSpinner = false; 
+    });
   }
   
   selectedHandouts() {
@@ -102,13 +103,14 @@ export class ResourcesPage {
     .getPostList('resources', 'categoryId', 1)
     .snapshotChanges()
     .map( changes => {
-        this.showSpinner = false;      
         return changes.map( c => ({
           key: c.payload.key, 
           ...c.payload.val() 
         }));
+    })
+    .do(() => {
+      this.showSpinner = false; 
     });
-
   }
 
   selectedResearch() {
@@ -122,6 +124,9 @@ export class ResourcesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
+    })
+    .do(() => {
+      this.showSpinner = false; 
     });
   }
 

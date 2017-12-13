@@ -21,12 +21,18 @@ export class AboutCnaPage {
   loader = this.loadingCtrl.create({
               content: "Please wait...",
             });
-  constructor(public navCtrl: NavController, db: AngularFireDatabase, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.page$ = db.object('pageAbout').valueChanges();
+
+  constructor(
+    public navCtrl: NavController, 
+    public db: AngularFireDatabase, 
+    public navParams: NavParams,  
+    public loadingCtrl: LoadingController, 
+    private posts: PostsListService
+  ) {
   }
 
   ngOnInit() {
-    console.log(this.page$);
+    this.page$ = this.db.object('pageAbout').valueChanges();    
   }
   
   presentLoading() {

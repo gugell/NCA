@@ -27,6 +27,9 @@ export class HomePage {
             });
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
+  }
+
+  ngOnInit() {
 
   }
   
@@ -43,7 +46,6 @@ export class HomePage {
           ...c.payload.val() 
         }));
     });
-    
   }
   
   presentLoading() {
@@ -55,12 +57,15 @@ export class HomePage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
-
     this.postsList('resources');
     this.postsList('recipes');
-    this.postsList('videos').then( () => (this.loader.dismiss()) );
+    this.postsList('videos')
+    .then( () => {
+      this.loader.dismiss();
+    });
     this.showSpinner = false;
   }
+
   handleClick($event, params) {
     console.log(params);
     this.navCtrl.push(InnerVideoPage, params);

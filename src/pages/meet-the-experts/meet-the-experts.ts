@@ -19,10 +19,16 @@ export class MeetTheExpertsPage {
   expertsList$: Observable<any[]>;
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
-              content: "Please wait...",
+              content: "Please wait..."
             });
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('/experts/');
+  }
+
+  ngOnInit() {
+    this.postsList('/experts/')
+    .then(() => {
+      this.loader.dismiss();
+    });    
   }
 
   async postsList(category) {
@@ -37,8 +43,6 @@ export class MeetTheExpertsPage {
         ...c.payload.val() })
       )
     })
-    .do( () => (this.loader.dismiss()) );
-    
   }
   
   presentLoading() {

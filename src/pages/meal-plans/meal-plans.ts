@@ -19,10 +19,14 @@ export class MealPlansPage {
   mealPlansList$: Observable<any[]>;
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
-              content: "Please wait...",
+              content: "Please wait..."
             });
   constructor(public navCtrl: NavController, public navParams: NavParams,  public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('/mealPlans/').then(() => {
+  }
+
+  ngOnInit() {
+    this.postsList('/mealPlans/')
+    .then(() => {
       this.loader.dismiss();
     });
   }

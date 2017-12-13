@@ -21,13 +21,14 @@ export class RecipesPage {
   postsList$: Observable<any[]>;
   showSpinner: boolean;
   loader = this.loadingCtrl.create({
-              content: "Please wait...",
+              content: "Please wait..."
             });
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('recipes').then(() => {
-      this.loader.dismiss();
-    });    
+  }
+
+  ngOnInit() {
+
   }
 
   async postsList(category) {
@@ -42,9 +43,7 @@ export class RecipesPage {
           key: c.payload.key, 
           ...c.payload.val() 
         }));
-    }, () => {this.loader.dismiss()});
-
-    // this.postsList$.subscribe( () => this.loader.dismiss());
+    });
   }
   
   presentLoading() {
@@ -54,17 +53,11 @@ export class RecipesPage {
     loader.present();
   }
 
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipesPage');
+    this.postsList('recipes').then(() => {
+      this.loader.dismiss();
+    });
   }
 
   doInfinite(infiniteScroll) {
@@ -76,7 +69,6 @@ export class RecipesPage {
   }
 
   handleClick($event, params) {
-    console.log(params);
     this.navCtrl.push(InnerVideoPage, params);
   }
 
