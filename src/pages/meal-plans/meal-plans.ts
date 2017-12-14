@@ -42,7 +42,7 @@ export class MealPlansPage {
       return changes.map( c => ({
         key: c.payload.key, 
         ...c.payload.val() 
-    }));
+      }));
     });
   }
 
@@ -54,7 +54,7 @@ export class MealPlansPage {
   }
 
   handleClick(event, item) {
-    this.navCtrl.push("InnerMealPlansPage", item);
+    this.navCtrl.push('InnerMealPlansPage', item);
   }
 
   ionViewDidLoad() {

@@ -27,6 +27,8 @@ export class ResourcesPage {
               content: "Please wait...",
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
+    this.postsList('resources', 'categoryId', undefined)
+        .then(() => { this.loader.dismiss() });
   }
 
   ngOnInit() {
@@ -39,13 +41,14 @@ export class ResourcesPage {
     
     this.postsList$ = this.posts
     .getPostList(category, filterName, categoryId )
-    .snapshotChanges()
+    .valueChanges()
     .map( changes => {
-        return changes.map( c => ({
-          key: c.payload.key, 
-          ...c.payload.val() 
-        }));
-    })
+      return changes
+        // return changes.map( c => ({
+        //   key: c.payload.key, 
+        //   ...c.payload.val() 
+        // }));
+    });
   }
   
   presentLoading() {
@@ -57,10 +60,7 @@ export class ResourcesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
-    this.postsList('resources', 'categoryId', undefined)
-    .then(() => {
-      this.loader.dismiss();      
-    });   
+   
   }
 
   selectedAll() {
@@ -131,6 +131,6 @@ export class ResourcesPage {
   }
 
   handleClick($event, params) {
-    this.navCtrl.push(InnerVideoPage, params);
+    this.navCtrl.push('InnerVideoPage', params);
   }
 }

@@ -36,12 +36,13 @@ export class MeetTheExpertsPage {
     
     this.expertsList$ = this.posts
     .getPostList(category, 'categoryId', undefined)
-    .snapshotChanges()
+    .valueChanges()
     .map( changes => {
-      return changes.map( c => ({
-        key: c.payload.key, 
-        ...c.payload.val() })
-      )
+      return changes;
+    //   return changes.map( c => ({
+    //     key: c.payload.key, 
+    //     ...c.payload.val() })
+    //   )
     })
   }
   
@@ -53,7 +54,7 @@ export class MeetTheExpertsPage {
   }
 
   handleClick(event, item) {
-    this.navCtrl.push("InnerMealPlansPage", {
+    this.navCtrl.push('InnerMealPlansPage', {
       roundedImage: true,
       ...item
     });

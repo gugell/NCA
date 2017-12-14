@@ -32,15 +32,15 @@ import { EmailService } from '../services/email-service';
 @NgModule({
   declarations: [
     MyApp,
-    TabsPage,
-    HomePage,
-    RecipesPage,
-    ResourcesPage,
-    MenuPage,
-    VideoPage,
+    // TabsPage,
+    // HomePage,
+    // RecipesPage,
+    // ResourcesPage,
+    // MenuPage,
+    // VideoPage,
     // HeadToolbarComponent,
-    RecipeCardComponent,
-    InnerVideoPage
+    // RecipeCardComponent,
+    // InnerVideoPage
   ],
   imports: [
     BrowserModule,
@@ -56,15 +56,15 @@ import { EmailService } from '../services/email-service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    TabsPage,
+    // TabsPage,
     // HeadToolbarComponent, 
-    RecipeCardComponent,   
-    HomePage,
-    RecipesPage,
-    ResourcesPage,
-    MenuPage,
-    VideoPage,
-    InnerVideoPage
+    // RecipeCardComponent,   
+    // HomePage,
+    // RecipesPage,
+    // ResourcesPage,
+    // MenuPage,
+    // VideoPage,
+    // InnerVideoPage
   ],
   providers: [
     StatusBar,

@@ -25,6 +25,8 @@ export class RecipesPage {
             });
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
+    this.postsList('recipes')
+        .then(() => { this.loader.dismiss() });  
   }
 
   ngOnInit() {
@@ -35,14 +37,15 @@ export class RecipesPage {
     this.showSpinner = false; 
     this.loader.present();  
     
-    this.postsList$ = this.posts
+    this.postsList$ = await this.posts
     .getPostList(category, 'categoryId', undefined)
-    .snapshotChanges()
+    .valueChanges()
     .map( changes => {
-        return changes.map( c => ({
-          key: c.payload.key, 
-          ...c.payload.val() 
-        }));
+      return changes;
+        // return changes.map( c => ({
+        //   key: c.payload.key, 
+        //   ...c.payload.val() 
+        // }));
     });
   }
   
@@ -55,9 +58,6 @@ export class RecipesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecipesPage');
-    this.postsList('recipes').then(() => {
-      this.loader.dismiss();
-    });
   }
 
   doInfinite(infiniteScroll) {
@@ -69,7 +69,7 @@ export class RecipesPage {
   }
 
   handleClick($event, params) {
-    this.navCtrl.push(InnerVideoPage, params);
+    this.navCtrl.push('InnerVideoPage', params);
   }
 
 }

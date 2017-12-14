@@ -64,7 +64,7 @@ export class SearchPage {
   }
 
   handleClick($event, params) {
-    this.navCtrl.push(InnerVideoPage, params);
+    this.navCtrl.push('InnerVideoPage', params);
   }
 
 }

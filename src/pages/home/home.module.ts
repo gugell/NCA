@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HomePage } from './home';
-import { RecipeCardComponent } from '../../components/recipe-card/recipe-card';
+import { RecipeCardModule } from '../../components/recipe-card/recipe-card.module';
 
 @NgModule({
   declarations: [
-    HomePage,
-    RecipeCardComponent
+    HomePage
   ],
   imports: [
-    IonicPageModule.forChild(HomePage)
+    IonicPageModule.forChild(HomePage),
+    RecipeCardModule
   ],
   exports: [
     HomePage

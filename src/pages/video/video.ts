@@ -17,7 +17,8 @@ export class VideoPage {
               content: "Please wait..."
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-
+    this.postsList('videos')
+        .then(() => { this.loader.dismiss() })  
   }
 
   ngOnInit() {
@@ -28,14 +29,15 @@ export class VideoPage {
     this.showSpinner = false; 
     this.loader.present();  
     
-    this.postsList$ = this.posts
+    this.postsList$ = await this.posts
     .getPostList(category, 'categoryId', undefined)
-    .snapshotChanges()
+    .valueChanges()
     .map( changes => {
-        return changes.map( c => ({
-          key: c.payload.key, 
-          ...c.payload.val() 
-        }));
+      return changes;
+        // return changes.map( c => ({
+        //   key: c.payload.key, 
+        //   ...c.payload.val() 
+        // }));
     });
   }
   
@@ -48,14 +50,9 @@ export class VideoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VideoPage');
-    this.postsList('videos')
-    .then(() => {
-      this.loader.dismiss();
-    });
   }
 
   handleClick($event, params) {
-    console.log(params);
     this.navCtrl.push('InnerVideoPage', params);
   }
 

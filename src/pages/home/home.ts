@@ -68,6 +68,6 @@ export class HomePage {
 
   handleClick($event, params) {
     console.log(params);
-    this.navCtrl.push(InnerVideoPage, params);
+    this.navCtrl.push('InnerVideoPage', params);
   }
 }

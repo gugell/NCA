@@ -17,7 +17,7 @@ import { DatePipe } from '@angular/common';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = 'TabsPage';
   pages: Array<{title: string, component: any}>;
 
   constructor( public app: App, platform: Platform, statusBar: StatusBar, private menuCtrl: MenuController, splashScreen: SplashScreen ) {
