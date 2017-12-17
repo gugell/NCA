@@ -15,6 +15,9 @@
 </ion-header>
 <ion-content>
     <div class="card__wrapper">
-      <recipe-card *ngFor="let card of postsList$ | async" [title]="card.title" [imgUrl]="card.thumbnailUrl" (click)="handleClick($event, {card: card, pageTitle: 'Recipes'})" ></recipe-card>   
+      <recipe-card *ngFor="let card of postsList$" [title]="card.title" [imgUrl]="card.thumbnailUrl" (click)="handleClick($event, {card: card, pageTitle: 'Recipes'})" ></recipe-card>   
     </div>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>   
 </ion-content>

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { InnerVideoPage } from '../inner-video/inner-video';
 import { PostsListService } from '../../services/posts-list.service';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Subject } from 'rxjs/Subject';
 
 /**
  * Generated class for the RecipesPage page.
@@ -17,37 +19,63 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'recipes.html',
 })
 export class RecipesPage {
+  finished: boolean = false;
   cards: Array<{title: string, img: string}>;
-  postsList$: Observable<any[]>;
+  postsList$ = [];
+  // postsList$: Observable<any[]>;
   showSpinner: boolean;
+  pageCounter: number = 10;
+  pageNumber = new Subject();
   loader = this.loadingCtrl.create({
               content: "Please wait..."
             });
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    this.postsList('recipes')
-        .then(() => { this.loader.dismiss() });  
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams, 
+    public loadingCtrl: LoadingController, 
+    private posts: PostsListService,
+    private db: AngularFireDatabase
+  ) {
+    // this.pageNumber.subscribe((pageNumber) => {
+    //   this.postsList('recipes', pageNumber)
+    //   .then(() => { this.loader.dismiss()});
+    // });
+    this.getPosts();
+      
   }
 
   ngOnInit() {
-
+    this.pageNumber.next(this.pageCounter);
   }
 
-  async postsList(category) {
-    this.showSpinner = false; 
-    this.loader.present();  
-    
-    this.postsList$ = await this.posts
-    .getPostList(category, 'categoryId', undefined)
-    .valueChanges()
-    .map( changes => {
-      return changes;
-        // return changes.map( c => ({
-        //   key: c.payload.key, 
-        //   ...c.payload.val() 
-        // }));
+
+  getPosts() {
+    this.loader.present(); 
+    this.pageNumber.subscribe((pageNumber) => {
+      this.posts.getData('resources', pageNumber, undefined).subscribe( (value) => {
+        this.postsList$ = value;        
+      })
     });
+    setTimeout(() => this.loader.dismiss(), 0);
   }
+
+
+  // async postsList(category, pageNumber) {
+  //   this.showSpinner = false; 
+  //   this.loader.present();  
+    
+  //   this.postsList$ = await this.posts
+  //   .getPostList(category, 'categoryId', null, pageNumber)
+  //   .valueChanges()
+  //   .map( changes => {
+  //     return changes;
+  //       // return changes.map( c => ({
+  //       //   key: c.payload.key, 
+  //       //   ...c.payload.val() 
+  //       // }));
+  //   });
+  // }
   
   presentLoading() {
     let loader = this.loadingCtrl.create({
@@ -62,6 +90,8 @@ export class RecipesPage {
 
   doInfinite(infiniteScroll) {
     console.log('Begin async operation');
+    this.pageNumber.next(this.pageCounter += 10);
+    
     setTimeout(() => {
       console.log('Async operation has ended');
       infiniteScroll.complete();

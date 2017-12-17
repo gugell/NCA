@@ -17,8 +17,9 @@
   <div class="card__wrapper mealPlans__content">
     <div *ngFor="let expert of expertsList$ | async" class="experts__card" (click)="handleClick($event, expert)">
       <ion-card class="recipe-card" >
-        <div class="img-wrapper">
-          <img class="width--100" [src]="expert.img" />        
+        <div class="img-wrapper" [ngStyle]="getMyStyles(expert.img)"
+        >
+          <!-- <img class="width--100" [src]="expert.img" />         -->
         </div>
         <ion-card-content>
           <ion-card-title>

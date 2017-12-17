@@ -14,13 +14,18 @@
 </ion-header>
 
 <ion-content class="mealPlans__content" >
-    <ion-card *ngFor="let plan of mealPlansList$ | async" (click)="handleClick($event, plan)">
+  <ion-card *ngFor="let plan of postsList$" (click)="handleClick($event, plan)">
+    <div class="img__container">
       <img class="width--100" [src]="plan.img"/>
-      <ion-card-content>
-        <ion-card-title>
-          {{ plan.title }}
-        </ion-card-title>
-        <!-- <div [innerHTML]="plan.html"></div> -->
-      </ion-card-content>
-    </ion-card>
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{ plan.title }}
+      </ion-card-title>
+      <!-- <div [innerHTML]="plan.html"></div> -->
+    </ion-card-content>
+  </ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> 
 </ion-content>
