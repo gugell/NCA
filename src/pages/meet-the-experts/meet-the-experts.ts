@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController, LoadingController 
 import { TabsPage } from '../tabs/tabs';
 import { Observable } from 'rxjs/Observable';
 import { PostsListService } from '../../services/posts-list.service';
+import { repeat } from 'rxjs/operator/repeat';
 /**
  * Generated class for the MeetTheExpertsPage page.
  *
@@ -51,6 +52,23 @@ export class MeetTheExpertsPage {
       content: "Loading..."
     });
     loader.present();
+  }
+
+  getMyStyles(img) {
+    let styles;
+    if(img) {
+      styles = {
+        'background-image': `url(${img})`
+      } 
+    } else {
+      styles = {
+        'background-image': 'url("./assets/icon/Icons/no-photo.png")',
+        'background-size': '65%',
+        'background-position': 'center',
+        'background-repeat': 'no-repeat'
+      }
+    }
+    return styles;
   }
 
   handleClick(event, item) {

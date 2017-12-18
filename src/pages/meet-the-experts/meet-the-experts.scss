@@ -5,6 +5,10 @@ page-meet-the-experts {
     }
     .experts__card {
         width: 50%;
+        .img-wrapper {
+            background-size: cover;
+            height: 15rem;
+        }
         img {
             max-height: 15rem;
             height: auto!important;

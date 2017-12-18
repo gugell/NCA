@@ -1,3 +1,18 @@
 page-resources {
-
+    .resource-spinner {
+            display: inline-block;
+            width: 28px!important;
+            height: 28px!important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transform: translateY(-15px);
+          
+        * {
+            stroke: #7bbd71!important;
+        }
+    }
 }
