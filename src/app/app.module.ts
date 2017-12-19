@@ -27,6 +27,7 @@ import { HttpClientModule }   from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { EmailService } from '../services/email-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -46,12 +47,12 @@ import { EmailService } from '../services/email-service';
     BrowserModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),    
     IonicModule.forRoot(MyApp, {
-      backButtonText: '',
-      // tabsHideOnSubPages: true,
+      backButtonText: ''
     }),
     HttpModule,
     HttpClientModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

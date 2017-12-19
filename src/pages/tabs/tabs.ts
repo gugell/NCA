@@ -21,7 +21,7 @@ export class TabsPage {
   tab5Root = 'MenuPage';
 
   constructor(private app: App, public navCtrl: NavController, public navParams: NavParams, private menuCtrl: MenuController ) {
-MenuController
+    MenuController
   }
 
   ionViewDidLoad() {

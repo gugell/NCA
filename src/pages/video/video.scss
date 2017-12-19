@@ -1,3 +1,6 @@
 page-video {
-
+    .segment-ios .segment-button:first-of-type, 
+    .segment-md .segment-button:first-of-type {
+        flex: 1;
+    }
 }

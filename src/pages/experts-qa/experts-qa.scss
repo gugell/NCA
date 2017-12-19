@@ -3,6 +3,10 @@ page-experts-qa {
         text-align: left;
     }
     .qa__form {
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #136735;
+        margin-bottom: 1.5rem;
+
         * {
             font-family: 'CenturyGothic';
         }
@@ -35,7 +39,7 @@ page-experts-qa {
         .button {
             color: #136735;
             font-weight: 700;
-            max-width: 80%;
+            // max-width: 80%;
             margin: 1.5rem auto 0;
         }
     }

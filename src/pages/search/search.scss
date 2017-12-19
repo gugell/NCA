@@ -61,5 +61,10 @@ page-search {
     }
     .img__container {
         min-height: auto;
+        max-height: 10rem;
+        overflow: hidden;
+        img {
+            height: auto;
+        }
     }
 }

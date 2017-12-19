@@ -11,6 +11,8 @@ import { Subject } from 'rxjs';
   templateUrl: 'video.html',
 })
 export class VideoPage {
+  categories: string = 'q&a';
+  categoryObs = new Subject();
   pageCounter: number = 10;
   pageNumber = new Subject();
   cards: Array<{title: string, img: string}>;
@@ -26,19 +28,23 @@ export class VideoPage {
   }
 
   ngOnInit() {
+    this.categoryObs.next(this.categories);
     this.pageNumber.next(this.pageCounter);
   }
 
   getPosts() {
     this.loader.present(); 
-    this.pageNumber.subscribe((pageNumber) => {
-      this.posts.getData('videos', pageNumber, undefined).subscribe( (value) => {
+    Observable.combineLatest(this.pageNumber, this.categoryObs).subscribe((variable) => {
+      this.posts.getData('videos', variable[0], undefined).subscribe( (value) => {
         this.postsList$ = value;        
       })
     });
     setTimeout(() => this.loader.dismiss(), 0);
   }
 
+  changeCategory(category) {
+    this.categoryObs.next(category);    
+  }
   // async postsList(category) {
   //   this.showSpinner = false; 
   //   this.loader.present();  
