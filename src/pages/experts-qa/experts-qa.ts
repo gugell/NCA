@@ -48,11 +48,11 @@ export class ExpertsQaPage {
 
   sendMail() {
     let email = {
-      to: 'mq-9@outlook.com',
+      to: 'emailtestprojects@gmail.com',
       cc: '',
       attachments: [],
       subject: 'New question from CNA.',
-      body: `Sender email: ${this.email["email"]} <hr> ${this.email["body"]}`
+      body: `Sender email: ${this.email["email"]} \r\n\r\n,  Queastion: ${this.email["body"]}`
     };
 
     // Send a text message using default options

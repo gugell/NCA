@@ -33,11 +33,11 @@ export class ContactsPage {
 
   sendMail() {
     let email = {
-      to: 'mq-9@outlook.com',
-      cc: 's3rgant@ukr.net',
+      to: 'emailtestprojects@gmail.com',
+      cc: '',
       attachments: [],
       subject: 'Message from CNA.',
-      body: 'Hello'
+      body: ''
     };
 
     // Send a text message using default options

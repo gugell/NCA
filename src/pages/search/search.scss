@@ -60,6 +60,11 @@ page-search {
         }
     }
     .img__container {
-        min-height: auto;
+        min-height: 10rem;
+        max-height: 10rem;
+        img {
+            height: auto;
+            min-height: 10rem;
+        }
     }
 }
