@@ -22,8 +22,7 @@
         {{ (page$ | async)?.title }}<br>
         {{ (page$ | async)?.subtitle}}
       </ion-card-title>
-    <div class="card__body" [innerHTML]="(page$ | async)?.html"></div>
-    <div class="qa__form">
+      <div class="qa__form">
         <p>
           <ion-label>Submit your question</ion-label>
           <ion-textarea type="text" [(ngModel)]="email.body"></ion-textarea>
@@ -38,15 +37,7 @@
         </p>
         <button ion-button color="secondary" full (click)="sendMail()">Submit</button>
       </div>
+      <div class="card__body" [innerHTML]="(page$ | async)?.html"></div>
     </ion-card-content>
   </ion-card>
-  <!-- <ion-card>
-    <ion-card-content>
-      <ion-card-title class="innerMeal__title text">
-        Ask the Experts
-      </ion-card-title>
-      <div class="card__body"></div>
-    
-    </ion-card-content>
-  </ion-card> -->
 </ion-content>

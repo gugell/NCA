@@ -12,11 +12,20 @@
         <span class="nav__title custom-title">Video</span>
     </ion-title>
   </ion-navbar>
+  <!--Segment buttons-->
+  <ion-segment class="search-header__segment" [(ngModel)]="categories" color="secondary" fixed>
+    <ion-segment-button isActive value="q&a" (ionSelect)="changeCategory('q&a')">
+      Q&A
+    </ion-segment-button>
+    <ion-segment-button value="recipes" (ionSelect)="changeCategory('recipes')">
+      Recipes
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 <ion-content>
     <div class="card__wrapper">
       <!-- <recipe-card [title]="cards[0].title" [imgUrl]="cards[0].img" (click)="handleClick($event, cards[0])" ></recipe-card> -->
-      <recipe-card *ngFor="let card of postsList$" [title]="card.title" [imgUrl]="card.img" (click)="handleClick($event, {card: card, pageTitle: 'Video'})" ></recipe-card>   
+      <recipe-card *ngFor="let card of postsList$" [title]="card.title" [imgUrl]="card.thumbnailUrl" (click)="handleClick($event, {card: card, pageTitle: 'Video'})" ></recipe-card>   
     </div>
     <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
       <ion-infinite-scroll-content></ion-infinite-scroll-content>

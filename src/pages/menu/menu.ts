@@ -15,7 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MenuPage {
   pages: Array<{title: string, component: any}>;
-  
+  visibleState = 'invisible';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.pages = [
@@ -32,6 +33,7 @@ export class MenuPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPage');
   }
+
   pageOpen(page) {
   //  this.navCtrl.pop();
    this.navCtrl.push(page); 
