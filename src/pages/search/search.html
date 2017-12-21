@@ -15,16 +15,18 @@
   <ion-segment class="search-header__segment" [(ngModel)]="categories" color="secondary" fixed>
     <ion-segment-button isActive value="resources" (ionSelect)="changeCategory('resources')">
       Resources
+      <ion-badge item-end color="#FF0000">{{resourcesLength}}</ion-badge>
     </ion-segment-button>
     <ion-segment-button value="recipes" (ionSelect)="changeCategory('recipes')">
       Recipes
+      <ion-badge item-end color="#FF0000">{{recipesLength}}</ion-badge>      
     </ion-segment-button>
     <ion-segment-button value="videos" (ionSelect)="changeCategory('videos')">
       Videos
+      <ion-badge item-end color="#FF0000">{{videosLength}}</ion-badge>      
     </ion-segment-button>
   </ion-segment>
 </ion-header>
-
 
 <ion-content class="mealPlans__content innerPage__content" >
   <div class="search__container">

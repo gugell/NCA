@@ -35,7 +35,7 @@ export class VideoPage {
   getPosts() {
     this.loader.present(); 
     Observable.combineLatest(this.pageNumber, this.categoryObs).subscribe((variable) => {
-      this.posts.getData('videos', variable[0], undefined).subscribe( (value) => {
+      this.posts.getData('videos', variable[0], undefined, variable[1], undefined).subscribe( (value) => {
         this.postsList$ = value;        
       })
     });

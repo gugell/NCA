@@ -21,17 +21,24 @@ export class PostsListService {
       )
     }
 
-    getData(category, limit, categoryId) {
+    getData(category, limit, categoryId, type, position) {
         console.log(category, limit , categoryId);
-        
-        if(!categoryId) {
+        if(position !== undefined) {
             return this.postListRef.list(`/${category}/`, ref => 
-                ref.limitToFirst(limit)
-            ).valueChanges();
+                    ref.orderByChild(position).limitToFirst(limit)
+                    ).valueChanges();
+        } else if(type !== undefined) {
+            return this.postListRef.list(`/${category}/`, ref => 
+                    ref.orderByChild('type').equalTo(type).limitToFirst(limit)
+                    ).valueChanges();
+        } else if(!categoryId) {
+            return this.postListRef.list(`/${category}/`, ref => 
+                    ref.limitToFirst(limit)
+                    ).valueChanges();
         } else {
             return this.postListRef.list(`/${category}/`, ref => 
-                ref.orderByChild('categoryId').equalTo(categoryId).limitToFirst(limit)
-            ).valueChanges();
+                    ref.orderByChild('categoryId').equalTo(categoryId).limitToFirst(limit)
+                    ).valueChanges();
         }
     }
 

@@ -45,7 +45,7 @@ export class ResourcesPage {
   getPosts() {
     this.loader.present(); 
     Observable.combineLatest(this.pageNumber, this.categoryId).subscribe((value) => {
-      this.posts.getData('resources', value[0], value[1]).subscribe( (value) => {
+      this.posts.getData('resources', value[0], value[1],  undefined, undefined).subscribe( (value) => {
         console.log(value);
         
         this.postsList$ = value;        

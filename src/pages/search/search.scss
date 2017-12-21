@@ -1,4 +1,13 @@
 page-search {
+    .segment-button ion-badge {
+        position: absolute;
+        top: 1px;
+        right: 2px;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-size: 1rem;
+        background-color: #FF0000;
+    }
     .search-header__segment {
         .segment-button:first-of-type {
             flex: 1;

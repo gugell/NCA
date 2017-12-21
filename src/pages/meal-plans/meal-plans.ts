@@ -41,10 +41,8 @@ export class MealPlansPage {
   getPosts() {
     this.loader.present(); 
     this.pageNumber.subscribe((pageNumber) => {
-      this.posts.getData('mealPlans', pageNumber, undefined).subscribe( (value) => {
-        this.postsList$ = value;    
-        console.log('value:::', value);
-            
+      this.posts.getData('mealPlans', pageNumber, undefined, undefined, undefined).subscribe( (value) => {
+        this.postsList$ = value;
       })
     });
     setTimeout(() => this.loader.dismiss(), 0);

@@ -53,8 +53,11 @@ export class RecipesPage {
   getPosts() {
     this.loader.present(); 
     this.pageNumber.subscribe((pageNumber) => {
-      this.posts.getData('resources', pageNumber, undefined).subscribe( (value) => {
-        this.postsList$ = value;        
+      this.posts.getData('recipes', pageNumber, undefined, undefined, 'position').subscribe( (value) => {
+        console.log('====================================');
+        console.log('value:::', value);
+        console.log('====================================');
+        this.postsList$ = value;       
       })
     });
     setTimeout(() => this.loader.dismiss(), 0);

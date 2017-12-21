@@ -22,6 +22,9 @@ import { InnerVideoPage } from '../inner-video/inner-video';
 })
 export class SearchPage {
   categories: string = 'resources';
+  resourcesLength: number;
+  recipesLength: number;
+  videosLength: number;
   result$ = [];
   searchInput = '';
   startAt = new Subject();
@@ -47,6 +50,33 @@ export class SearchPage {
           this.result$ = res;
         } else {
           this.result$ = [];
+        }
+      });
+    });
+    Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
+      this.firequery('resources', value[0], value[1]).subscribe((res) => {
+        if(value[0] !== '') {
+          this.resourcesLength = res.length;
+        } else {
+          this.resourcesLength = 0;
+        }
+      });
+    });
+    Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
+      this.firequery('recipes', value[0], value[1]).subscribe((res) => {
+        if(value[0] !== '') {
+          this.recipesLength = res.length;
+        } else {
+          this.recipesLength = 0;
+        }
+      });
+    });
+    Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
+      this.firequery('videos', value[0], value[1]).subscribe((res) => {
+        if(value[0] !== '') {
+          this.videosLength = res.length;
+        } else {
+          this.videosLength = 0;
         }
       });
     });
