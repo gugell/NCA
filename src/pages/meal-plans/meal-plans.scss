@@ -12,4 +12,18 @@ page-meal-plans {
         font-family: 'CenturyGothic';
         color: #136735;
     }
+    .mealPlans__hero-text {
+        margin: 10px;
+        width: calc(100%-20px);
+        padding: 10px;
+        border: none;
+        box-shadow: none;
+        text-align: justify;
+        p {
+            margin-bottom: 1rem;
+        }
+        cite {
+            font-size: 1.15rem;
+        }
+    }
 }

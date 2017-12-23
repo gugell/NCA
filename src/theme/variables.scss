@@ -133,6 +133,14 @@ $tabs-md-background: (#7bbd71);
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/700/Oswald-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 [class*='ion-md-custom']:before{
   display: inline-block;
   font-family: 'Glyphter';

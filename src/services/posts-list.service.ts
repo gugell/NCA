@@ -29,7 +29,7 @@ export class PostsListService {
                     ).valueChanges();
         } else if(type !== undefined) {
             return this.postListRef.list(`/${category}/`, ref => 
-                    ref.orderByChild('type').equalTo(type).limitToFirst(limit)
+                    ref.orderByChild('videoType').equalTo(type).limitToFirst(limit)
                     ).valueChanges();
         } else if(!categoryId) {
             return this.postListRef.list(`/${category}/`, ref => 

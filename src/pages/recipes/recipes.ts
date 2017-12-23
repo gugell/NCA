@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { InnerVideoPage } from '../inner-video/inner-video';
 import { PostsListService } from '../../services/posts-list.service';
-import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
 
@@ -54,31 +52,11 @@ export class RecipesPage {
     this.loader.present(); 
     this.pageNumber.subscribe((pageNumber) => {
       this.posts.getData('recipes', pageNumber, undefined, undefined, 'position').subscribe( (value) => {
-        console.log('====================================');
-        console.log('value:::', value);
-        console.log('====================================');
         this.postsList$ = value;       
       })
     });
     setTimeout(() => this.loader.dismiss(), 0);
   }
-
-
-  // async postsList(category, pageNumber) {
-  //   this.showSpinner = false; 
-  //   this.loader.present();  
-    
-  //   this.postsList$ = await this.posts
-  //   .getPostList(category, 'categoryId', null, pageNumber)
-  //   .valueChanges()
-  //   .map( changes => {
-  //     return changes;
-  //       // return changes.map( c => ({
-  //       //   key: c.payload.key, 
-  //       //   ...c.payload.val() 
-  //       // }));
-  //   });
-  // }
   
   presentLoading() {
     let loader = this.loadingCtrl.create({

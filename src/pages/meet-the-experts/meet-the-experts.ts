@@ -39,6 +39,7 @@ export class MeetTheExpertsPage {
     .getPostList(category, 'categoryId', undefined)
     .valueChanges()
     .map( changes => {
+      console.log('changes', changes)
       return changes;
     //   return changes.map( c => ({
     //     key: c.payload.key, 

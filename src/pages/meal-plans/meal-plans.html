@@ -14,6 +14,18 @@
 </ion-header>
 
 <ion-content class="mealPlans__content" >
+  <ion-card class="mealPlans__hero-text">
+    <p>
+        "I'm good at exercising, but bad at eating. Nutrition is my missing link. I'm confused by conflicting nutrition information, and I don't even know where to begin to shape up my diet. I need some food help!"
+        - Lenny        
+    </p>
+    <p>
+        If most of your clients are like Lenny, these meal plans can help. You know that food is important for fueling their bodies and investing in overall health, but often clients don't quite manage to eat right. Given today's good food- bad food culture, eating well has become more confusing ever. Let these plans help you point them in the right direction.
+    </p>
+    <cite>
+        (Thanks to Nancy Clark and the Nancy Clark's Sports Nutrition Guidebook)
+    </cite>
+  </ion-card>
   <ion-card *ngFor="let plan of postsList$" (click)="handleClick($event, plan)">
     <div class="img__container">
       <img class="width--100" [src]="plan.thumbnailUrl"/>

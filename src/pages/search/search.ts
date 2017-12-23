@@ -31,7 +31,7 @@ export class SearchPage {
   endAt = new Subject();
   startobs = this.startAt.asObservable();
   endobs = this.endAt.asObservable();
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private posts: PostsListService, private db: AngularFireDatabase) {
 
   }
@@ -39,24 +39,36 @@ export class SearchPage {
   ngOnInit() {
   }
 
+  // firequery(category, start, end) {
+  //   return this.db.list(`/${category}`, ref => ref.orderByChild('html').startAt(start).endAt(end)).valueChanges();
+  // } 
   firequery(category, start, end) {
-    return this.db.list(`/${category}`, ref => ref.orderByChild('title').startAt(start).endAt(end)).valueChanges();
+    return this.db.list(`/${category}`, ref => ref.orderByChild('html')).valueChanges();
   }
 
   ionViewDidLoad() {
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery(this.categories, value[0], value[1]).subscribe((res) => {
+     
         if(value[0] !== '') {
-          this.result$ = res;
+          this.result$ = res.filter((item) => {
+            return item["html"].toUpperCase().indexOf(this.searchInput.toUpperCase()) > 0;
+          });
         } else {
           this.result$ = [];
         }
+        
       });
     });
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('resources', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
-          this.resourcesLength = res.length;
+          let result = res.filter((item) => {
+            return item["html"].toUpperCase().indexOf(this.searchInput.toUpperCase()) > 0;
+          });
+          setTimeout(() => {
+            this.resourcesLength = result.length;
+          }, 0)
         } else {
           this.resourcesLength = 0;
         }
@@ -65,7 +77,12 @@ export class SearchPage {
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('recipes', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
-          this.recipesLength = res.length;
+          let result = res.filter((item) => {
+            return item["html"].toUpperCase().indexOf(this.searchInput.toUpperCase()) > 0;
+          });
+          setTimeout(() => {
+            this.recipesLength = result.length;
+          }, 0)
         } else {
           this.recipesLength = 0;
         }
@@ -74,7 +91,12 @@ export class SearchPage {
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('videos', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
-          this.videosLength = res.length;
+          let result = res.filter((item) => {
+            return item["html"].toUpperCase().indexOf(this.searchInput.toUpperCase()) > 0;
+          });
+          setTimeout(() => {
+            this.videosLength = result.length;
+          }, 0)
         } else {
           this.videosLength = 0;
         }
@@ -89,12 +111,15 @@ export class SearchPage {
   }
 
   showInput(event) {
-    this.startAt.next(this.searchInput.toUpperCase());
-    this.endAt.next(this.searchInput.toUpperCase() + '\uf8ff');
+    this.startAt.next(this.searchInput);
+    this.endAt.next(this.searchInput);
   }
 
   handleClick($event, params) {
     this.navCtrl.push('InnerVideoPage', params);
   }
 
+  handleKeyboard(event) {
+    event.target.blur();
+  }
 }

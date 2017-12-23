@@ -30,10 +30,13 @@
 
 <ion-content class="mealPlans__content innerPage__content" >
   <div class="search__container">
-      <p>
-        <ion-label class="search__icon"></ion-label>
-        <ion-input type="text" [(ngModel)]="searchInput" (input)="showInput($event)" placeholder="Search..."></ion-input>
-      </p>
+      <!-- <p> -->
+          <!-- [ngModelOptions]="{standalone: true}" -->
+        <form>
+          <ion-label class="search__icon"></ion-label>
+          <ion-input type="search" [(ngModel)]="searchInput" name="search" (keyup.enter)="handleKeyboard($event)" (input)="showInput($event)" placeholder="Search..."></ion-input>
+        </form>
+      <!-- </p> -->
   </div>
   <div>
     <div class="category__wrapper search__wrapper">
