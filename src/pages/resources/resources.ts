@@ -46,8 +46,6 @@ export class ResourcesPage {
     this.loader.present(); 
     Observable.combineLatest(this.pageNumber, this.categoryId).subscribe((value) => {
       this.posts.getData('resources', value[0], value[1],  undefined, undefined).subscribe( (value) => {
-        console.log(value);
-        
         this.postsList$ = value;        
       })
     });
@@ -79,79 +77,23 @@ export class ResourcesPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResourcesPage');
-   
   }
 
   selectedAll() {
-    // this.showSpinner = true;    
-    // this.postsList$ = this.posts
-    // .getPostList('resources', 'categoryId', undefined)
-    // .snapshotChanges()
-    // .map( changes => {
-    //     this.showSpinner = false;
-    //     return changes.map( c => ({
-    //       key: c.payload.key, 
-    //       ...c.payload.val() 
-    //     }));
-    // })
-    // .do(() => {
-    //   this.showSpinner = false; 
-    // });
     this.categoryId.next(undefined);
   }
 
   selectedInfographics() {
-    // this.showSpinner = true; 
-    // this.postsList$ = this.posts
-    // .getPostList('resources', 'categoryId', 2)
-    // .snapshotChanges()
-    // .map( changes => {
-    //     this.showSpinner = false;      
-    //     return changes.map( c => ({
-    //       key: c.payload.key, 
-    //       ...c.payload.val() 
-    //     }));
-    // })
-    // .do(() => {
-    //   this.showSpinner = false; 
-    // });
-    this.categoryId.next(2);
+    this.categoryId.next(3);
   }
   
-  selectedHandouts() {
-    // this.showSpinner = true; 
-    // this.postsList$ = this.posts
-    // .getPostList('resources', 'categoryId', 1)
-    // .snapshotChanges()
-    // .map( changes => {
-    //     return changes.map( c => ({
-    //       key: c.payload.key, 
-    //       ...c.payload.val() 
-    //     }));
-    // })
-    // .do(() => {
-    //   this.showSpinner = false; 
-    // });
+  selectedReference() {
     this.pageNumber.next(this.pageCounter);
     this.categoryId.next(1);
   }
 
-  selectedResearch() {
-    // this.showSpinner = true; 
-    // this.postsList$ = this.posts
-    // .getPostList('resources', 'categoryId', 3)
-    // .snapshotChanges()
-    // .map( changes => {
-    //     this.showSpinner = false;      
-    //     return changes.map( c => ({
-    //       key: c.payload.key, 
-    //       ...c.payload.val() 
-    //     }));
-    // })
-    // .do(() => {
-    //   this.showSpinner = false; 
-    // });
-    this.categoryId.next(3);
+  selectedEducation() {
+    this.categoryId.next(2);
   }
 
   doInfinite(infiniteScroll) {
