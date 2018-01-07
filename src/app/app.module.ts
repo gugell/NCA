@@ -28,6 +28,7 @@ import { HTTP } from '@ionic-native/http';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { EmailService } from '../services/email-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Network } from '@ionic-native/network';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     StreamingMedia,
     HTTP,
     EmailComposer,
-    EmailService
+    EmailService,
+    Network
   ]
 })
 export class AppModule {}

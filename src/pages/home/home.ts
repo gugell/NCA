@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { InnerVideoPage } from '../inner-video/inner-video';
 import { PostsListService } from '../../services/posts-list.service';
 import { Observable } from 'rxjs/Observable';
 

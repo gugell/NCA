@@ -87,4 +87,5 @@
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <plugin name="cordova-plugin-advanced-http" spec="^1.9.0" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.11" />
+    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
 </widget>

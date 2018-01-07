@@ -6,11 +6,8 @@ import {
   LoadingController  
 } from 'ionic-angular';
 
-import { InnerVideoPage } from '../inner-video/inner-video';
 import { PostsListService } from '../../services/posts-list.service';
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Post } from '../../models/post.model';
 import 'rxjs/add/operator/switchMap';
 import { Subject } from 'rxjs';
 

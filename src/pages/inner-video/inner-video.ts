@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
-import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 import 'rxjs/add/operator/do';
 
