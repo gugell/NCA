@@ -37,39 +37,34 @@ export class InnerVideoPage {
       orientation: 'landscape'
     };
 
-    //GET VIDEO STREAM LINK
     if(this.context.card.link) {
-      let splitedUrl = this.context.card.link.split('/');
-      let videoID = splitedUrl[+splitedUrl.length - 1];
-      // let newHeaders = {'origin' : '*'};
-      // let myHeaders = new Headers(newHeaders);
-      // let myInit = { method: 'GET',
-      //                 headers: myHeaders,
-      //                 mode: 'cors',
-      //                 cache: 'default' };
-      // fetch(`https://www.youpak.com/${videoID}`)
-      // .then((res) => (res.blob()))
-      // .then( (res) => {console.log('RES from fetch', res);})
-      this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
-          .then( (res) => {
+      console.log('VIDEO ID', this.context.card.link);
+      this.streamingMedia.playVideo(this.context.card.link, options);
+      // let splitedUrl = this.context.card.link.split('/');
+      // let videoID = splitedUrl[+splitedUrl.length - 1];
+      // this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
+      //     .then( (res) => {
             
-              let html = res.data.match(/<source .+ \/>/i);
-              this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
-          })
-          .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
+      //         let html = res.data.match(/<source .+ \/>/i);
+      //         this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
+      //     })
+      //     .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
     }
-  }
 
-  // startVideo() {
-  //   let options: StreamingVideoOptions = {
-  //     successCallback: () => { console.log('Success') },
-  //     errorCallback: () => { console.log('Error') },
-  //     orientation: 'landscape'
-  //   }
-  //   if(this.context.card.link) {
-  //     this.streamingMedia.playVideo(this.context.card.link, options);      
-  //   }
-  // }
+    //GET VIDEO STREAM LINK
+    // if(this.context.card.link) {
+    //   let splitedUrl = this.context.card.link.split('/');
+    //   let videoID = splitedUrl[+splitedUrl.length - 1];
+    //   console.log('VIDEO ID', videoID);
+    //   this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
+    //       .then( (res) => {
+            
+    //           let html = res.data.match(/<source .+ \/>/i);
+    //           this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
+    //       })
+    //       .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
+    // }
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad InnerVideoPage', this.context);
