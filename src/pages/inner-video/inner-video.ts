@@ -39,7 +39,7 @@ export class InnerVideoPage {
     //GET VIDEO STREAM LINK
     if(this.context.card.link) {
       let splitedUrl = this.context.card.link.split('/');
-      let videoID = splitedUrl[+splitedUrl.length - 1];
+      let videoID = splitedUrl[+splitedUrl.length - 1].replace('watch?v=', '');
 
       this.http.get(`https://www.youpak.com/watch?v=${videoID}`, { responseType: 'text' }, {})
           .then( (res) => {
