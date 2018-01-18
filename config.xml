@@ -19,6 +19,7 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="5000" />
+    <preference name="YouTubeDataApiKey" value="AIzaSyCwX9liD8qwEMgNb6oveHjaJUuQYmUFK5Q" />
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -86,6 +87,10 @@
     <plugin name="cordova-plugin-advanced-http" spec="^1.9.0" />
     <plugin name="cordova-plugin-email-composer" spec="^0.8.11" />
     <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
+<<<<<<< HEAD
     <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="~4.5.4" />
+=======
+    <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
+>>>>>>> 7e676d0e2e8cce8c2e6758ef5e94b0c43aca0cbc
 </widget>

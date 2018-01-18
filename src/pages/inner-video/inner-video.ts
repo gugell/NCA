@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
 import { HTTP } from '@ionic-native/http';
 import 'rxjs/add/operator/do';
-
 /**
  * Generated class for the InnerVideoPage page.
  *
@@ -38,36 +37,21 @@ export class InnerVideoPage {
     };
 
     if(this.context.card.link) {
-      console.log('VIDEO ID', this.context.card.link);
-      this.streamingMedia.playVideo(this.context.card.link, options);
-      // let splitedUrl = this.context.card.link.split('/');
-      // let videoID = splitedUrl[+splitedUrl.length - 1];
-      // this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
-      //     .then( (res) => {
-            
-      //         let html = res.data.match(/<source .+ \/>/i);
-      //         this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
-      //     })
-      //     .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
-    }
+      let splitedUrl = this.context.card.link.split('/');
+      let videoID = splitedUrl[+splitedUrl.length - 1].replace('watch?v=', '');
 
-    //GET VIDEO STREAM LINK
-    // if(this.context.card.link) {
-    //   let splitedUrl = this.context.card.link.split('/');
-    //   let videoID = splitedUrl[+splitedUrl.length - 1];
-    //   console.log('VIDEO ID', videoID);
-    //   this.http.get(`https://www.youpak.com/${videoID}`, { responseType: 'text' }, {})
-    //       .then( (res) => {
+      this.http.get(`https://www.youpak.com/watch?v=${videoID}`, { responseType: 'text' }, {})
+          .then( (res) => {
             
-    //           let html = res.data.match(/<source .+ \/>/i);
-    //           this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
-    //       })
-    //       .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
-    // }
+              let html = res.data.match(/<source .+ \/>/i);
+              this.videoUrl = document.createRange().createContextualFragment(html[0]).querySelector('source').getAttribute('src');
+              console.log('this.context.card.link', this.context.card.link);
+          })
+          .then( (res) => { this.streamingMedia.playVideo(this.videoUrl, options);});
+    }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InnerVideoPage', this.context);
 
     this.context.card.link ? this.video = true : this.video = false;
 
