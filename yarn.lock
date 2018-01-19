@@ -148,6 +148,10 @@
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/@ionic-native/streaming-media/-/streaming-media-4.5.2.tgz#3c4035272147333f4c575ef8c95037027516013c"
 
+"@ionic-native/youtube-video-player@^4.5.2":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@ionic-native/youtube-video-player/-/youtube-video-player-4.5.2.tgz#3a882b15b7427397f883e13a508b50f74544d938"
+
 "@ionic/app-scripts@3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@ionic/app-scripts/-/app-scripts-3.0.1.tgz#6110a7d6c8ff75ba5acfa37c3389fc269ea301c7"
@@ -912,6 +916,10 @@ cordova-plugin-streaming-media@^1.0.2:
 cordova-plugin-whitelist@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/cordova-plugin-whitelist/-/cordova-plugin-whitelist-1.3.3.tgz#b5e85ecdbbfe5aeded40a1bf4ee2372e67d96fb4"
+
+cordova-plugin-youtube-video-player@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-youtube-video-player/-/cordova-plugin-youtube-video-player-1.0.6.tgz#bc1ac92d0377cb8aef12cdb3c01577f2b172e2f5"
 
 cordova-registry-mapper@^1.1.8:
   version "1.1.15"
