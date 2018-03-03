@@ -4,13 +4,6 @@ import { PostsListService } from '../../services/posts-list.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
 
-/**
- * Generated class for the RecipesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-recipes',
@@ -20,7 +13,6 @@ export class RecipesPage {
   finished: boolean = false;
   cards: Array<{title: string, img: string}>;
   postsList$ = [];
-  // postsList$: Observable<any[]>;
   showSpinner: boolean;
   pageCounter: number = 10;
   pageNumber = new Subject();
@@ -35,10 +27,7 @@ export class RecipesPage {
     private posts: PostsListService,
     private db: AngularFireDatabase
   ) {
-    // this.pageNumber.subscribe((pageNumber) => {
-    //   this.postsList('recipes', pageNumber)
-    //   .then(() => { this.loader.dismiss()});
-    // });
+
     this.getPosts();
       
   }

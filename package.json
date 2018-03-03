@@ -31,6 +31,7 @@
     "@ionic-native/youtube-video-player": "^4.5.2",
     "@ionic/storage": "2.1.1",
     "angularfire2": "^5.0.0-rc.3",
+    "com.hutchind.cordova.plugins.streamingmedia": "~0.1.4",
     "cordova-android": "6.3.0",
     "cordova-ios": "4.5.4",
     "cordova-plugin-advanced-http": "^1.9.0",
@@ -51,7 +52,7 @@
     "sw-toolbox": "3.6.0",
     "web-animations-js": "^2.3.1",
     "zone.js": "0.8.18",
-    "com.hutchind.cordova.plugins.streamingmedia": "~0.1.4"
+    "cordova-plugin-youtube-video-player": "^1.0.6"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.0.1",
@@ -68,7 +69,8 @@
       "com.hutchind.cordova.plugins.streamingmedia": {},
       "cordova-plugin-advanced-http": {},
       "cordova-plugin-email-composer": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-youtube-video-player": {}
     },
     "platforms": [
       "android",
