@@ -1,17 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { App, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Network } from '@ionic-native/network';
 
-import { TabsPage } from '../pages/tabs/tabs';
-import { MeetTheExpertsPage } from '../pages/meet-the-experts/meet-the-experts';
-import { ExpertsQaPage } from '../pages/experts-qa/experts-qa';
-import { ContactsPage } from '../pages/contacts/contacts';
-import { AboutCnaPage } from '../pages/about-cna/about-cna';
-import { MealPlansPage } from '../pages/meal-plans/meal-plans';
-import { SearchPage } from '../pages/search/search';
-import { SlicePipe } from '@angular/common';
 import { DatePipe } from '@angular/common';
 import { AlertController } from 'ionic-angular';
 

@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { Observable } from 'rxjs/Observable';
-import { PostsListService } from '../../services/posts-list.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-/**
- * Generated class for the AboutCnaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -26,8 +18,7 @@ export class AboutCnaPage {
     public navCtrl: NavController, 
     public db: AngularFireDatabase, 
     public navParams: NavParams,  
-    public loadingCtrl: LoadingController, 
-    private posts: PostsListService
+    public loadingCtrl: LoadingController
   ) {
   }
 

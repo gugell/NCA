@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { PostsListService } from '../../services/posts-list.service';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { Subject } from 'rxjs/Subject';
 
 @IonicPage()
@@ -24,8 +23,7 @@ export class RecipesPage {
     public navCtrl: NavController,
     public navParams: NavParams, 
     public loadingCtrl: LoadingController, 
-    private posts: PostsListService,
-    private db: AngularFireDatabase
+    private posts: PostsListService
   ) {
 
     this.getPosts();

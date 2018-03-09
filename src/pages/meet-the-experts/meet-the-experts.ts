@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, LoadingController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { PostsListService } from '../../services/posts-list.service';
-import { repeat } from 'rxjs/operator/repeat';
-/**
- * Generated class for the MeetTheExpertsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

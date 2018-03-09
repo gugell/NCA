@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { PostsListService } from '../../services/posts-list.service';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { EmailComposer } from '@ionic-native/email-composer';
-
-/**
- * Generated class for the ExpertsQaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,7 +19,6 @@ export class ExpertsQaPage {
     public navCtrl: NavController, 
     public db: AngularFireDatabase, 
     public navParams: NavParams, 
-    private posts: PostsListService, 
     public loadingCtrl: LoadingController,
     public emailComposer: EmailComposer) {
   }

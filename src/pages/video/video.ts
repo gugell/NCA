@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-import { InnerVideoPage } from '../inner-video/inner-video';
 import { Observable } from 'rxjs/Observable';
 import { PostsListService } from '../../services/posts-list.service';
 import { Subject } from 'rxjs';
@@ -22,8 +21,6 @@ export class VideoPage {
               content: "Please wait..."
             });
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private posts: PostsListService) {
-    // this.postsList('videos')
-    //     .then(() => { this.loader.dismiss() })  
     this.getPosts();
   }
 

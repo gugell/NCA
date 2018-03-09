@@ -2,18 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 import { PostsListService } from '../../services/posts-list.service';
-import { constructor } from 'firebase/app';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subject } from 'rxjs/Subject';
-import { AngularFireAction, AngularFireDatabase } from 'angularfire2/database';
-import { InnerVideoPage } from '../inner-video/inner-video';
-
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -32,16 +22,13 @@ export class SearchPage {
   startobs = this.startAt.asObservable();
   endobs = this.endAt.asObservable();
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private posts: PostsListService, private db: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase) {
 
   }
 
   ngOnInit() {
   }
 
-  // firequery(category, start, end) {
-  //   return this.db.list(`/${category}`, ref => ref.orderByChild('html').startAt(start).endAt(end)).valueChanges();
-  // } 
   firequery(category, start, end) {
     return this.db.list(`/${category}`, ref => ref.orderByChild('html')).valueChanges();
   }
@@ -60,6 +47,7 @@ export class SearchPage {
         
       });
     });
+
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('resources', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
@@ -74,6 +62,7 @@ export class SearchPage {
         }
       });
     });
+
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('recipes', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
@@ -88,6 +77,7 @@ export class SearchPage {
         }
       });
     });
+
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery('videos', value[0], value[1]).subscribe((res) => {
         if(value[0] !== '') {
