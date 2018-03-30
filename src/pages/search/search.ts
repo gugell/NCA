@@ -32,19 +32,21 @@ export class SearchPage {
   firequery(category, start, end) {
     return this.db.list(`/${category}`, ref => ref.orderByChild('html')).valueChanges();
   }
-
+  ionViewWillEnter() {
+    this.startAt.next(this.searchInput);
+    this.endAt.next(this.searchInput);
+  }
   ionViewDidLoad() {
     Observable.combineLatest(this.startobs, this.endobs).subscribe((value) => {
       this.firequery(this.categories, value[0], value[1]).subscribe((res) => {
-     
+        console.log(res)
         if(value[0] !== '') {
           this.result$ = res.filter((item) => {
             return item["html"].toUpperCase().indexOf(this.searchInput.toUpperCase()) > 0;
           });
         } else {
-          this.result$ = [];
+          this.result$ = res;
         }
-        
       });
     });
 
@@ -58,7 +60,7 @@ export class SearchPage {
             this.resourcesLength = result.length;
           }, 0)
         } else {
-          this.resourcesLength = 0;
+          this.resourcesLength = res.length;
         }
       });
     });
@@ -73,7 +75,7 @@ export class SearchPage {
             this.recipesLength = result.length;
           }, 0)
         } else {
-          this.recipesLength = 0;
+          this.recipesLength = res.length;
         }
       });
     });
@@ -88,7 +90,7 @@ export class SearchPage {
             this.videosLength = result.length;
           }, 0)
         } else {
-          this.videosLength = 0;
+          this.videosLength = res.length;
         }
       });
     });

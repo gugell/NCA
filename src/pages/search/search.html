@@ -19,11 +19,11 @@
     </ion-segment-button>
     <ion-segment-button value="recipes" (ionSelect)="changeCategory('recipes')">
       Recipes
-      <ion-badge item-end color="#FF0000">{{recipesLength}}</ion-badge>      
+      <ion-badge item-end color="#FF0000">{{recipesLength}}</ion-badge>
     </ion-segment-button>
     <ion-segment-button value="videos" (ionSelect)="changeCategory('videos')">
       Videos
-      <ion-badge item-end color="#FF0000">{{videosLength}}</ion-badge>      
+      <ion-badge item-end color="#FF0000">{{videosLength}}</ion-badge>
     </ion-segment-button>
   </ion-segment>
 </ion-header>
@@ -40,13 +40,12 @@
   </div>
   <div>
     <div class="category__wrapper search__wrapper">
-      <h3 class="category__title">{{categories}}</h3>        
+      <h3 class="category__title">{{categories}}</h3>
       <div>
         <div class="category__item" *ngFor="let item of result$"  (click)="handleClick($event, {card: item, pageTitle: categories})">
           <div class="img__container"><img class="item__img" width="100%" height="100px"  [src]="item.thumbnailUrl" /></div>
           <div class="item__header">
                   <div class="card-title">{{item?.title}}</div>
-                  <div class="card-subtitle">{{36 * 100000 | date:'dd/MM/yyyy'}}</div>
           </div>
         </div>
       </div>
