@@ -1,0 +1,30 @@
+page-blog {
+    .mealPlans__content {
+        background-color: #d9ebf2;
+    }
+    ion-card {
+        border-bottom: 2px solid #7bbd71;
+
+        .img__container, ion-card-content {
+            margin: 10px;
+            position: relative;
+        }
+        ion-card-content.card-content-md {
+            padding: 0;
+        }
+    }
+    ion-card-title.card-title {
+        padding: 0px 0;
+        text-align: center;
+        font-size: 2.2rem;
+        font-family: 'CenturyGothic';
+        color: #136735;
+    }
+    .author_avatar {
+        position: absolute;
+        width: 65px;
+        top: 0;
+        left: 0;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+    }
+}

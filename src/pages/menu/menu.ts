@@ -20,12 +20,13 @@ export class MenuPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.pages = [
-      { title: 'Meal Plans', component: 'MealPlansPage' },      
+      { title: 'Meal Plans', component: 'MealPlansPage' },
       { title: 'CNA Experts', component: 'MeetTheExpertsPage' },
       { title: 'Ask the Experts', component: 'ExpertsQaPage' },
       { title: 'About', component: 'AboutCnaPage' },
       { title: 'Contact', component: 'ContactsPage' },
       { title: 'Search', component: 'SearchPage' },
+      { title: 'Blog', component: 'BlogPage' },
       { title: 'Calorie Counter', component: 'CalorieCounterPage' }
     ];
 
@@ -37,6 +38,6 @@ export class MenuPage {
 
   pageOpen(page) {
   //  this.navCtrl.pop();
-   this.navCtrl.push(page); 
+   this.navCtrl.push(page);
   }
 }

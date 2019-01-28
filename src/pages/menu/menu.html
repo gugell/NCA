@@ -9,25 +9,31 @@
 <ion-content >
   <div class="menu__wrapper" >
     <div class="category__wrapper" (click)="pageOpen(pages[0].component)">
-      <h3 class="category__title category__title--meal ion-md-custom--meal">{{pages[0].title}}</h3>        
+      <h3 class="category__title category__title--meal ion-md-custom--meal">{{pages[0].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[1].component)">
-      <h3 class="category__title category__title--experts custom--experts">{{pages[1].title}}</h3>        
+      <h3 class="category__title category__title--experts custom--experts">{{pages[1].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[2].component)">
-      <h3 class="category__title category__title--qa custom--qa">{{pages[2].title}}</h3>        
+      <h3 class="category__title category__title--qa custom--qa">{{pages[2].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[3].component)">
-      <h3 class="category__title category__title--about custom--about">{{pages[3].title}}</h3>        
+      <h3 class="category__title category__title--about custom--about">{{pages[3].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[4].component)">
-      <h3 class="category__title category__title--contact custom--contact">{{pages[4].title}}</h3>        
+      <h3 class="category__title category__title--contact custom--contact">{{pages[4].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[5].component)">
-      <h3 class="category__title category__title--search custom--search">{{pages[5].title}}</h3>        
+      <h3 class="category__title category__title--search custom--search">{{pages[5].title}}</h3>
     </div>
     <div class="category__wrapper" (click)="pageOpen(pages[6].component)">
-      <h3 class="category__title category__title--search custom--search">{{pages[6].title}}</h3>        
+      <h3 class="category__title category__title--blog category__svg-icon">
+        <img src="/assets/icon/Icons/BlogIcon.svg" class="svg-icon" />
+        {{pages[6].title}}
+      </h3>
+    </div>
+    <div class="category__wrapper" (click)="pageOpen(pages[7].component)">
+      <h3 class="category__title category__title--search custom--search">{{pages[7].title}}</h3>
     </div>
   </div>
 </ion-content>
