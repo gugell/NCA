@@ -27,7 +27,7 @@ import { Network } from '@ionic-native/network';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG),    
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
     IonicModule.forRoot(MyApp, {
       backButtonText: ''
     }),

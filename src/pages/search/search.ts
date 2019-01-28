@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
-import { PostsListService } from '../../services/posts-list.service';
 import { Subject } from 'rxjs/Subject';
 import { AngularFireDatabase } from 'angularfire2/database';
 

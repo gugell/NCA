@@ -1,0 +1,25 @@
+page-inner-blog {
+  .scroll-content {
+    padding: 0 !important;
+  }
+  .img__container {
+    position: relative;
+    .author_avatar {
+      position: absolute;
+      width: 65px;
+      top: 0;
+      left: 0;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+      line-height: 0;
+    }
+  }
+  .innerBlogPost__title {
+    text-align: center;
+    border-bottom: 1px solid #136735;
+    margin-bottom: 15px;
+  }
+
+  .card__body p {
+    color: #136735;
+  }
+}

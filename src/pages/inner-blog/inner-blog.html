@@ -1,0 +1,31 @@
+<!--
+  Generated template for the InnerBlogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar light>
+    <ion-title>
+        <img class="nav__logo" width="45px" height="45px" src="./assets/imgs/logo.png" />
+        <span class="nav__title custom-title">Blog</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="img__container">
+    <img class="width--100" src="{{post.img}}"/>
+    <div class="author_avatar">
+      <img src="{{post.authorImg}}"/>
+    </div>
+  </div>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title class="innerBlogPost__title text">
+        {{ post.title }}
+        <div>By: {{ post.author }}</div>
+      </ion-card-title>
+      <div class="card__body text" [innerHTML]="post.html"></div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

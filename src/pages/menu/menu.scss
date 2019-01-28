@@ -22,4 +22,13 @@ page-menu {
             line-height: 4.5rem;
         }
     }
+
+  .category__svg-icon {
+    .svg-icon {
+      width: 35px;
+      position: absolute;
+      left: 15px;
+      top: 6px;
+    }
+  }
 }
