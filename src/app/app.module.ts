@@ -17,9 +17,9 @@ import { HttpClientModule }   from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { EmailService } from '../services/email-service';
+import { FoodService } from '../services/food-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Network } from '@ionic-native/network';
-
 
 @NgModule({
   declarations: [
@@ -51,6 +51,7 @@ import { Network } from '@ionic-native/network';
     HTTP,
     EmailComposer,
     EmailService,
+    FoodService,
     Network
   ]
 })

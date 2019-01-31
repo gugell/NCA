@@ -25,7 +25,8 @@ export class MenuPage {
       { title: 'Ask the Experts', component: 'ExpertsQaPage' },
       { title: 'About', component: 'AboutCnaPage' },
       { title: 'Contact', component: 'ContactsPage' },
-      { title: 'Search', component: 'SearchPage' }
+      { title: 'Search', component: 'SearchPage' },
+      { title: 'Calorie Counter', component: 'CalorieCounterPage' }
     ];
 
   }

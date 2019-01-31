@@ -1,0 +1,27 @@
+page-calorie-counter-search {
+    .search__container {
+        padding: 15px;
+    }
+    .food-list-search {
+        margin-top: 15px;
+    }
+    .searchbar-md{
+        padding: 0;
+        
+        .searchbar-input {
+            padding-left: 13px;
+            box-shadow: none;
+            border-radius: 0;
+            border: 1px solid #88c75f;
+            line-height: 2rem;
+        }
+        .searchbar-search-icon {
+            left: initial;
+            right: 13px;
+            top: 7px;
+        }
+        .searchbar-clear-icon {
+            display: none !important;
+        }
+    } 
+}
