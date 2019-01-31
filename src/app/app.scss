@@ -85,7 +85,9 @@
 .text {
   font-family: 'CenturyGothic';
 }
-
+.justify-content--center {
+  justify-content: center;
+}
 .toolbar-ios ion-title {
   padding: 0 70px 1px;
 }
@@ -388,4 +390,88 @@ img.width--100 {
   font-size: 4rem;
   background-color:rgba(255,255,255, .5);
   border-radius: 50%;
+}
+
+
+.box {
+  display: -webkit-flex;
+  display: flex;
+  
+  -webkit-flex-flow: column wrap;
+  background-color: #fff;
+
+  .box-item-header {
+    background: #146836;
+    padding: 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    line-height: 1;
+  }
+
+  .box-content{
+    margin: 10px; 
+  }
+
+  .box-item {
+    background: white;
+    justify-content: flex-start;
+    border-bottom: 1px solid #eaf5f8;
+    color: #146836;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .box-product{
+    margin: 0px;
+  }
+
+  .box-product-title {
+    margin: 0px;
+    color: #146836;
+    font-size: 1.2rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .box-product-quantity {
+    color: #88c75f;
+    font-size: 1rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    font-style: italic;
+  }
+
+  .box-item-value {
+    color: #146836;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-weight: lighter;
+    margin-left: 5px;
+  }
+
+  .box-item-footer {
+    background: #88c75f; 
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: row;
+    padding: 3px 20px;
+    color: white;
+    font-size: 1.5rem;
+  }
 }

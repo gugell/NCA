@@ -1,0 +1,9 @@
+<!-- Generated template for the FoodListSearchComponent component -->
+<div class="food-list-search" *ngIf="list.length">
+  <div class="box-item" *ngFor="let item of list">
+    <div class="box-product">
+      <div class="box-product-title">{{item.name}}</div>
+      <div class="box-product-quantity">{{item.group}}</div>
+    </div>
+  </div>
+</div>

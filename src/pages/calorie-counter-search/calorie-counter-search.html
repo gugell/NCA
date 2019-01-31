@@ -1,0 +1,63 @@
+<!--
+  Generated template for the CalorieCounterSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar light>
+    <ion-title>
+      <img class="nav__logo" width="45px" height="45px" src="./assets/imgs/logo.png" />
+      <span class="nav__title custom-title custom-title--mealPlans">Calorie <br> Counter</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="mealPlans__content innerPage__content">
+  <div class="search__container">
+    <div class="box">
+      <div class="box-item-header">search</div>
+      <div class="box-content">
+        <ion-searchbar animated (ionChange)="onSearch($event._value)" placeholder="SEARCH NAME OF FOOD"></ion-searchbar>
+        <food-list-search [list]="searchResults"></food-list-search>
+        <div style="margin: 15px 0;" *ngIf="hasError || isFetching">
+          <div *ngIf="hasError">Nothing was found :(</div>
+          <div *ngIf="isFetching" class="row justify-content--center">
+            <ion-spinner name="crescent"></ion-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
+
+
+<!-- <div class="box">
+    <div class="box-item-header">breakfast</div>
+    <div class="box-content">
+      <div class="box-item">
+        <div class="box-product">
+          <div class="box-product-title">waffles</div>
+          <div class="box-product-quantity">wegmans, 2 pieces</div>
+        </div>
+        <div class="box-item-value">170</div>
+      </div>
+      <div class="box-item">
+        <div class="box-product">
+          <div class="box-product-title">waffles dfgf gdfgfd gf gfdgfd g</div>
+          <div class="box-product-quantity">wegmans, 2 pieces</div>
+        </div>
+      </div>
+    </div>
+    <div class="box-item-footer">
+      <div class="box-item-value">185</div>
+    </div>
+  </div>
+</div> -->
