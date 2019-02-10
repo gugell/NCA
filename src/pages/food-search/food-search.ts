@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, ModalController } from 'ionic-angular';
 import { FoodService } from '../../services/food-service';
 import { Subject } from 'rxjs/Subject';
+import { FoodDetailsPage } from "../food-details/food-details";
+
 /**
- * Generated class for the CalorieCounterSearchPage page.
+ * Generated class for the FoodSearchPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,9 +14,9 @@ import { Subject } from 'rxjs/Subject';
 @IonicPage()
 @Component({
   selector: 'page-calorie-counter-search',
-  templateUrl: 'calorie-counter-search.html',
+  templateUrl: 'food-search.html',
 })
-export class CalorieCounterSearchPage {
+export class FoodSearchPage {
 
   searchResults = [];
   isFetching: boolean = false;
@@ -22,10 +24,10 @@ export class CalorieCounterSearchPage {
   totalResults: number = null;
   searchQuery: string;
   pageCounter: number = 0;
-  perPage: number = 10;
+  perPage: number = 25;
   pageOffset = new Subject();
 
-  constructor(public foodService: FoodService) {
+  constructor(public foodService: FoodService, private modalController: ModalController) {
   }
 
   ngOnInit() {
@@ -46,13 +48,13 @@ export class CalorieCounterSearchPage {
   searchSubscribe() {
     this.pageOffset.subscribe(offset => {
       this.hasError = false;
-      this.foodService.search(this.searchQuery, { offset, max: this.perPage }).subscribe(data => {
+      this.foodService.search(this.searchQuery, {offset, max: this.perPage}).subscribe(data => {
         if (data.list && data.list.item.length) {
           if (!this.totalResults) {
             this.totalResults = data.list.total;
           }
           this.searchResults = this.searchResults.concat(data.list.item);
-          
+
         } else {
           this.hasError = true;
         }
@@ -69,5 +71,11 @@ export class CalorieCounterSearchPage {
     setTimeout(() => {
       infiniteScroll.complete();
     }, 500);
+  }
+
+  async onFoodSelect(item: any) {
+    await this.modalController.create(FoodDetailsPage, {
+      id: item.ndbno,
+    }).present();
   }
 }

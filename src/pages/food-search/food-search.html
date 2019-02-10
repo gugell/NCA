@@ -1,5 +1,5 @@
 <!--
-  Generated template for the CalorieCounterSearchPage page.
+  Generated template for the FoodSearchPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -20,7 +20,7 @@
       <div class="box-item-header">search</div>
       <div class="box-content">
         <ion-searchbar animated (ionChange)="onSearch($event._value)" placeholder="SEARCH NAME OF FOOD"></ion-searchbar>
-        <food-list-search [list]="searchResults"></food-list-search>
+        <food-list-search [list]="searchResults" (onSelect)="onFoodSelect($event)"></food-list-search>
         <div style="margin: 15px 0;" *ngIf="hasError || isFetching">
           <div *ngIf="hasError">Nothing was found :(</div>
           <div *ngIf="isFetching" class="row justify-content--center">
@@ -37,27 +37,3 @@
   </ion-infinite-scroll>
 
 </ion-content>
-
-
-<!-- <div class="box">
-    <div class="box-item-header">breakfast</div>
-    <div class="box-content">
-      <div class="box-item">
-        <div class="box-product">
-          <div class="box-product-title">waffles</div>
-          <div class="box-product-quantity">wegmans, 2 pieces</div>
-        </div>
-        <div class="box-item-value">170</div>
-      </div>
-      <div class="box-item">
-        <div class="box-product">
-          <div class="box-product-title">waffles dfgf gdfgfd gf gfdgfd g</div>
-          <div class="box-product-quantity">wegmans, 2 pieces</div>
-        </div>
-      </div>
-    </div>
-    <div class="box-item-footer">
-      <div class="box-item-value">185</div>
-    </div>
-  </div>
-</div> -->

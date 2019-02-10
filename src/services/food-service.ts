@@ -28,5 +28,12 @@ export class FoodService {
             ...params
         })
     }
+
+    getDetails(id: string) {
+      return this.get('reports', {
+        ndbno: id,
+        type: 'b'
+      })
+    }
 }
 
