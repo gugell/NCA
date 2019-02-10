@@ -20,10 +20,13 @@ import { EmailService } from '../services/email-service';
 import { FoodService } from '../services/food-service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Network } from '@ionic-native/network';
+import { FoodDetailsPage } from "../pages/food-details/food-details";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    FoodDetailsPage,
   ],
   imports: [
     BrowserModule,
@@ -34,11 +37,13 @@ import { Network } from '@ionic-native/network';
     HttpModule,
     HttpClientModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    FoodDetailsPage
   ],
   providers: [
     StatusBar,

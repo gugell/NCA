@@ -1,0 +1,62 @@
+<!--
+  Generated template for the FoodDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar light>
+    <ion-title>
+      <img class="nav__logo" width="45px" height="45px" src="./assets/imgs/logo.png" />
+      <span class="nav__title custom-title">Food info</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="isFetching" class="row justify-content--center">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+  <div *ngIf="food">
+    <h3 class="text">
+      {{food.name}}
+    </h3>
+    <br/>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Measure type</ion-label>
+        <ion-select [(ngModel)]="measureIndex">
+          <ion-option *ngFor="let measure of energyNutrient.measures; let i = index" value="{{i}}">{{measure.qty}} {{measure.label}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Quantity</ion-label>
+        <ion-input [(ngModel)]="quantity" type="number" style="text-align: right;"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Value</ion-label>
+        <ion-note item-end>
+          <span *ngIf="measureIndex < 0 || !quantity || !value">N/A</span>
+          <span *ngIf="measureIndex > -1 && quantity && value">{{value.toFixed(2)}} {{energyNutrient.measures[measureIndex].eunit}}</span>
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Calories</ion-label>
+        <ion-note item-end>
+          <span *ngIf="measureIndex < 0 || !quantity || !calories">N/A</span>
+          <span *ngIf="measureIndex > -1 && quantity && calories">{{calories.toFixed(2)}} kcal</span>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+
+  </div>
+  <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 15px 0;">
+    <button ion-button color="light" (click)="close()">
+      Cancel
+    </button>
+    <button ion-button color="secondary" (click)="add()">
+      Add
+    </button>
+  </div>
+
+</ion-content>

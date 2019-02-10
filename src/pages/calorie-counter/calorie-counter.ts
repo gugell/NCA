@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-
-import { FoodService } from '../../services/food-service';
+import { Storage } from "@ionic/storage";
+import { Food } from "../../models/food.model";
 
 /**
  * Generated class for the CalorieCounterPage page.
@@ -17,19 +17,35 @@ import { FoodService } from '../../services/food-service';
 })
 export class CalorieCounterPage {
 
-  constructor(public navCtrl: NavController) {
+  foodList: Array<Food> = [];
+
+  constructor(public navCtrl: NavController, private storage: Storage,) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalorieCounterPage');
+  ionViewWillEnter() {
+    this.getFoodList();
+  }
 
-    // this.foodService.search('butter').subscribe(data => {
-    //   console.log('data', data)
-    // });
+  async getFoodList() {
+    const foodList = await this.storage.get('foodList');
+    this.foodList = foodList || [];
+  }
+
+  get totalCalories() {
+    if (!this.foodList.length) {
+      return 0;
+    }
+    return this.foodList
+      .map(food => food.calories)
+      .reduce((total, calories) => total + calories, 0)
   }
 
   onAdd() {
-    this.navCtrl.push('CalorieCounterSearchPage');
+    this.navCtrl.push('FoodSearchPage');
+  }
+
+  onClear() {
+    this.storage.remove('foodList').then(() => this.getFoodList())
   }
 
 }

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { CalorieCounterSearchPage } from './calorie-counter-search';
+import { FoodSearchPage } from './food-search';
 import { FoodListSearchModule } from '../../components/food-list-search/food-list-search.module';
 
 @NgModule({
   declarations: [
-    CalorieCounterSearchPage,
+    FoodSearchPage,
   ],
   imports: [
-    IonicPageModule.forChild(CalorieCounterSearchPage),
-    FoodListSearchModule
+    IonicPageModule.forChild(FoodSearchPage),
+    FoodListSearchModule,
   ],
 })
-export class CalorieCounterSearchPageModule {}
+export class FoodSearchPageModule {}

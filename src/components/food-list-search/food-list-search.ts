@@ -1,4 +1,4 @@
-import { Component, Input, } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 /**
  * Generated class for the FoodListSearchComponent component.
@@ -13,7 +13,12 @@ import { Component, Input, } from '@angular/core';
 export class FoodListSearchComponent {
 
   @Input() list: Array<any>;
+  @Output() onSelect: EventEmitter<any> = new EventEmitter();
 
   constructor() {
+  }
+
+  onBoxClick(item){
+    this.onSelect.emit(item)
   }
 }
