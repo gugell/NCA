@@ -34,6 +34,12 @@
         <ion-input [(ngModel)]="quantity" type="number" style="text-align: right;"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label>Group</ion-label>
+        <ion-select [(ngModel)]="selectedFoodGroupId">
+          <ion-option *ngFor="let foodGroup of foodGroupsOptions" value="{{foodGroup.id}}">{{foodGroup.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
         <ion-label>Value</ion-label>
         <ion-note item-end>
           <span *ngIf="measureIndex < 0 || !quantity || !value">N/A</span>

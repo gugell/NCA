@@ -3,7 +3,8 @@ import {IonicPage, NavParams, ViewController} from 'ionic-angular';
 import {Storage} from '@ionic/storage';
 import {FoodService} from "../../services/food-service";
 import {Food} from "../../models/food.model";
-
+import {FOOD_GROUPS, FOOD_STORAGE_KEY} from "../../app/constants";
+import {FoodGroup} from "../../models/food-group.model";
 /**
  * Generated class for the FoodDetailsPage page.
  *
@@ -23,6 +24,8 @@ export class FoodDetailsPage {
   public energyNutrient: any;
   public measureIndex: string = '';
   public quantity: string = '';
+  public selectedFoodGroupId: number;
+  public foodGroupsOptions: Array<FoodGroup> = FOOD_GROUPS;
 
   constructor(
     private viewCtrl: ViewController,
@@ -37,6 +40,9 @@ export class FoodDetailsPage {
     this.foodService.getDetails(foodId).subscribe(response => {
       this.food = response.report.food;
       this.energyNutrient = this.food.nutrients.filter(nutrient => nutrient.unit === 'kcal')[0];
+      if (this.energyNutrient.measures.length === 1) {
+        this.measureIndex = '0';
+      }
       // this.measures = this.energyNutrient.measures;
       this.isFetching = false;
     });
@@ -75,14 +81,20 @@ export class FoodDetailsPage {
       parseFloat(this.quantity),
       this.calories
     );
-    if (food.name && food.measure && food.calories && food.quantity) {
-      let foodList: Array<Food> = await this.storage.get('foodList');
-      if (!foodList) {
-        foodList = [];
+    if (food.name && food.measure && food.calories && food.quantity && this.selectedFoodGroupId) {
+      let foodGroupsList: Array<FoodGroup> = await this.storage.get(FOOD_STORAGE_KEY);
+      if (!foodGroupsList || !foodGroupsList.length) {
+        foodGroupsList = FOOD_GROUPS;
       }
-      foodList.push(food);
-      this.storage.set('foodList', foodList)
-        .then(() => this.close());
+
+      const selectedFoodGroupId = Number(this.selectedFoodGroupId);
+      const groupIndex = foodGroupsList.findIndex(group => group.id === selectedFoodGroupId);
+
+      if (groupIndex > -1) {
+        foodGroupsList[groupIndex].foodList.push(food);
+        this.storage.set(FOOD_STORAGE_KEY, foodGroupsList)
+          .then(() => this.close());
+      }
     }
   }
 

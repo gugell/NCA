@@ -14,17 +14,26 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button color="secondary" (click)="onAdd()">
-    Add to log
-  </button>
-  <button ion-button color="secondary" (click)="onClear()">
-    Clear log
-  </button>
+  <div style="display: flex; justify-content: space-between">
+    <button ion-button color="secondary" (click)="onSave()">
+      Save
+    </button>
+    <button ion-button color="primary" (click)="onAdd()">
+      Add to log
+    </button>
+  </div>
+  <div class="box" style="margin-top: 25px;" *ngFor="let foodGroup of foodGroups">
+    <div class="box-item-header">
+      <div class="box-item-header-name">
+        {{foodGroup.name}}
+      </div>
+      <div class="box-item-header-action">
+        <a (click)="clearGroup(foodGroup.id)">Clear</a>
+      </div>
 
-  <div class="box" style="margin-top: 25px;" *ngIf="totalCalories">
-    <div class="box-item-header">group name</div>
+    </div>
     <div class="box-content">
-      <div class="box-item" *ngFor="let food of foodList">
+      <div class="box-item" *ngFor="let food of foodGroup.foodList">
         <div class="box-product">
           <div class="box-product-title">{{food.name}}</div>
           <div class="box-product-quantity">{{food.quantity*food.measure.qty}} {{food.measure.label}}</div>
@@ -33,7 +42,13 @@
       </div>
     </div>
     <div class="box-item-footer">
-      <div class="box-item-value">{{totalCalories}}</div>
+      <div class="box-item-value">{{getGroupTotalCalories(foodGroup.foodList)}}</div>
     </div>
+  </div>
+  <div style="display: flex;justify-content: space-between; align-items: center; margin: 25px 0;font-size: 16px;" *ngIf="getTotalCalories()">
+    <button ion-button color="danger" (click)="onClear()" *ngIf="foodGroups.length">
+      Clear all
+    </button>
+    <div>Total: {{getTotalCalories()}} kcal</div>
   </div>
 </ion-content>
