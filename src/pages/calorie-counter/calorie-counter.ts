@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import {AlertController, IonicPage, NavController} from 'ionic-angular';
 import { Storage } from "@ionic/storage";
-import { Food } from "../../models/food.model";
+import {FoodGroup} from "../../models/food-group.model";
+import {Food} from "../../models/food.model";
+import {FOOD_GROUPS, FOOD_STORAGE_KEY} from "../../app/constants";
+import {EmailComposer} from "@ionic-native/email-composer";
 
 /**
  * Generated class for the CalorieCounterPage page.
@@ -17,9 +20,13 @@ import { Food } from "../../models/food.model";
 })
 export class CalorieCounterPage {
 
-  foodList: Array<Food> = [];
+  foodGroups: Array<FoodGroup> = [];
 
-  constructor(public navCtrl: NavController, private storage: Storage,) {
+  constructor(
+    public navCtrl: NavController,
+    private storage: Storage,
+    private alertController: AlertController,
+    private emailComposer: EmailComposer) {
   }
 
   ionViewWillEnter() {
@@ -27,25 +34,90 @@ export class CalorieCounterPage {
   }
 
   async getFoodList() {
-    const foodList = await this.storage.get('foodList');
-    this.foodList = foodList || [];
+    const foodGroups: Array<FoodGroup> = await this.storage.get(FOOD_STORAGE_KEY) || [];
+
+    this.foodGroups = foodGroups.filter(group => group.foodList.length);
   }
 
-  get totalCalories() {
-    if (!this.foodList.length) {
+  getTotalCalories() {
+    if (!this.foodGroups || !this.foodGroups.length) {
       return 0;
     }
-    return this.foodList
+
+    return this.foodGroups.reduce((total, group) => {
+      return total + this.getGroupTotalCalories(group.foodList)
+    }, 0)
+  }
+
+  getGroupTotalCalories(foodList: Array<Food>) {
+    if (!foodList.length) {
+      return 0;
+    }
+    return foodList
       .map(food => food.calories)
       .reduce((total, calories) => total + calories, 0)
+  }
+
+  clearGroup(groupId: number) {
+    const foodGroupIndex = this.foodGroups.findIndex(group => group.id === groupId);
+    this.foodGroups[foodGroupIndex].foodList = [];
+
+    this.storage.set(FOOD_STORAGE_KEY, this.foodGroups).then(() => {
+      this.getFoodList();
+    });
   }
 
   onAdd() {
     this.navCtrl.push('FoodSearchPage');
   }
 
-  onClear() {
-    this.storage.remove('foodList').then(() => this.getFoodList())
+  onSave() {
+    let emailBody = '<h1>Calorie counter</h1>';
+    console.log('this.foodGroups', this.foodGroups);
+
+    this.foodGroups.forEach(group => {
+      emailBody += `<h3>${group.name}</h3>`;
+      group.foodList.forEach(food => {
+        emailBody += `<div>${food.name} (${food.quantity*food.measure.qty} ${food.measure.label}): <strong>${food.calories} kcal</strong></div>`;
+      });
+      emailBody += `<div>Total: ${this.getGroupTotalCalories(group.foodList)} kcal</div>`;
+      emailBody += '<br>';
+    });
+    emailBody += '<br>';
+    emailBody += `<h2>Total calories: ${this.getTotalCalories()} kcal</h2>`;
+
+    const email = {
+      to: '',
+      subject: 'Calorie Counter',
+      body: emailBody,
+      isHtml: true,
+    };
+    this.emailComposer.open(email)
+  }
+
+  async onClear() {
+    const alert = await this.alertController.create({
+      title: 'Are you sure you want to clear all logs?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'OK',
+          handler: () => {
+            this.foodGroups = FOOD_GROUPS;
+            this.storage.set(FOOD_STORAGE_KEY, FOOD_GROUPS).then(() => {
+              this.getFoodList();
+            })
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+
+
   }
 
 }

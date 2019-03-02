@@ -135,7 +135,7 @@
       text-overflow: ellipsis;
     }
     .card-subtitle {
-      font-family: 'CenturyGothic';      
+      font-family: 'CenturyGothic';
       font-size: 1.5rem;
       color: #7bbd71;
       font-weight: 400;
@@ -360,7 +360,7 @@ img.width--100 {
   transform: rotateZ(-130deg);
   font-size: 4rem;
   &:after {
-    color: #136735;  
+    color: #136735;
     content: "\f46e";
   }
 }
@@ -396,7 +396,7 @@ img.width--100 {
 .box {
   display: -webkit-flex;
   display: flex;
-  
+
   -webkit-flex-flow: column wrap;
   background-color: #fff;
 
@@ -410,10 +410,20 @@ img.width--100 {
     display: flex;
     flex-direction: row;
     line-height: 1;
+    justify-content: space-between;
+    align-items: center;
+
+    .box-item-header-action {
+      > a {
+        color: #fff;
+        font-size: 12px;
+        line-height: 1;
+      }
+    }
   }
 
   .box-content{
-    margin: 10px; 
+    padding: 10px;
   }
 
   .box-item {
@@ -466,7 +476,7 @@ img.width--100 {
   }
 
   .box-item-footer {
-    background: #88c75f; 
+    background: #88c75f;
     justify-content: flex-end;
     display: flex;
     flex-direction: row;
