@@ -21,13 +21,15 @@ export class MenuPage {
 
     this.pages = [
       { title: 'Meal Plans', component: 'MealPlansPage' },
+      { title: 'Recipes', component: 'RecipesPage' },
       { title: 'CNA Experts', component: 'MeetTheExpertsPage' },
       { title: 'Ask the Experts', component: 'ExpertsQaPage' },
       { title: 'About', component: 'AboutCnaPage' },
       { title: 'Contact', component: 'ContactsPage' },
       { title: 'Search', component: 'SearchPage' },
       { title: 'Blog', component: 'BlogPage' },
-      { title: 'Calorie Counter', component: 'CalorieCounterPage' }
+      { title: 'Video', component: 'VideoPage' }
+      
     ];
 
   }

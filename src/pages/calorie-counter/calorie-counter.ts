@@ -21,6 +21,7 @@ import {EmailComposer} from "@ionic-native/email-composer";
 export class CalorieCounterPage {
 
   foodGroups: Array<FoodGroup> = [];
+  shouldShowHint: Boolean = true;
 
   constructor(
     public navCtrl: NavController,
@@ -39,6 +40,9 @@ export class CalorieCounterPage {
     this.foodGroups = foodGroups.filter(group => group.foodList.length);
   }
 
+  hideInstructions(){
+    this.shouldShowHint = false;
+  }
   getTotalCalories() {
     if (!this.foodGroups || !this.foodGroups.length) {
       return 0;
@@ -110,6 +114,7 @@ export class CalorieCounterPage {
             this.storage.set(FOOD_STORAGE_KEY, FOOD_GROUPS).then(() => {
               this.getFoodList();
             })
+            this.shouldShowHint = true;
           }
         }
       ]

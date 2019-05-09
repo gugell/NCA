@@ -8,13 +8,31 @@
   <ion-navbar light>
     <ion-title>
       <img class="nav__logo" width="45px" height="45px" src="./assets/imgs/logo.png" />
-      <span class="nav__title custom-title custom-title--mealPlans">Calorie <br> Counter</span>
+      <span class="nav__title custom-title custom-title--mealPlans">Calorie <br>Counter</span>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div style="display: flex; justify-content: space-between">
+
+    <ion-card *ngIf="shouldShowHint == true">
+        <ion-card-content>
+          <div class="card__body text">Track what you eat with our new calorie counter tool.<br><br>
+            1. Start by clicking the Add to log button<br>
+            2. Search for items in the Search window<br>
+            3. Scroll and click your food<br>
+            4. Fill in Measure type, Quantity, and Meal (Breakfast, Lunch, Dinner)<br>
+            5. Click Add to include it in your daily list<br><br>
+            
+            Continue to keep track of foods through the day. 
+            Click SAVE to email yourself a daily report </div>
+        </ion-card-content>
+      </ion-card>
+      <div text-center *ngIf="shouldShowHint == true">
+          <button ion-button color="secondary" (click)="hideInstructions()">
+            BEGIN
+          </button></div>
+  <div style="display: flex; justify-content: space-between" *ngIf="shouldShowHint == false">
     <button ion-button color="secondary" (click)="onSave()">
       Save
     </button>
@@ -41,14 +59,17 @@
         <div class="box-item-value">{{food.calories}}</div>
       </div>
     </div>
+
     <div class="box-item-footer">
       <div class="box-item-value">{{getGroupTotalCalories(foodGroup.foodList)}}</div>
     </div>
   </div>
+  
   <div style="display: flex;justify-content: space-between; align-items: center; margin: 25px 0;font-size: 16px;" *ngIf="getTotalCalories()">
     <button ion-button color="danger" (click)="onClear()" *ngIf="foodGroups.length">
       Clear all
     </button>
     <div>Total: {{getTotalCalories()}} kcal</div>
   </div>
+
 </ion-content>

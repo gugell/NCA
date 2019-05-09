@@ -11,7 +11,7 @@ export class TabsPage {
   tab1Root = 'HomePage';
   tab2Root = 'ResourcesPage';
   tab3Root = 'RecipesPage';
-  tab4Root = 'VideoPage';
+  tab4Root = 'CalorieCounterPage';
   tab5Root = 'MenuPage';
 
   constructor( public navCtrl: NavController, public navParams: NavParams ) {
